@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2? family= Roboto:wght@100;300;400;500 & display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #0D0D0D;
+}
+
+body {
+    background-color: #D3D3D3;
+    border: 1px solid black;
+}
+
+#search-container{
+    margin-bottom: auto;
+    margin-left: 40%;
+    width: 20%;
+    border-radius: 4px;
+    border-color: transparent;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+#search-container input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 5vh;
+    padding: 1vh;
+}
+
+#search-container button {
+    margin: auto;
+}
+
+#feed-container {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 90%;
+    margin: auto;
+    justify-content: center;
+}
+
+.cards {
+    display: inline-block;
+    border: 1px solid #000;
+    border-radius: 1px;
+    font-size: 1rem;
+    max-width: 33vh;
+    /* height: 65vh; */
+    display: flex;
+    text-align: center;
+    display: block;
+    margin: 1% 1%;
+}
+
+.cards img {
+    border-radius: 0.75rem;
+    width: 33vh;
+    height: 35vh;
+    overflow: hidden;
+}
+
+.cards .btn-save{
+    height: 2rem 0 0 0;
+    width: 20vh;
+    height: 5vh;
+    border-radius: 0.3rem;
+    border: transparent;
+    background-color: #FFFFFF;
+    color: #0d0d0d;
+    margin-bottom: 3%;
+}
+
+#ul{
+    list-style: none;
+}
+
+.nav-link{
+    display: inline-block;
+}
+
+@media (min-width: 600px) and (max-width: 960px) {
+    
+    #search-container{
+        margin-left: 25%;
+        width: 50%;
+    }
+}
