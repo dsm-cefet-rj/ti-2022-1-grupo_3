@@ -8,25 +8,28 @@
 }
 
 body {
-    background-color: #D3D3D3;
-    border: 1px solid black;
+    background-color: #FFFFFF;
 }
 
-#logo{
-    width: 10%;
-    height: 10%;
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#logo {
+    width: 10rem;
+    height: 10rem;
     display: inline;
 }
 
-#search-container{
-    margin-bottom: auto;
-    margin-left: 40%;
-    width: 20%;
-    border-color: transparent;
-    border-bottom: 1px solid;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1rem;
+#search-container {
+    background-color: #ccc;
+    /* opacity: 0.1; */
+    margin: auto;
+    border-radius: 14px;
+    width: 90%;
 }
 
 #search-container input {
@@ -35,17 +38,14 @@ body {
     background-color: transparent;
     width: 100%;
     height: 5vh;
-    padding: 1vh;
+    padding: 1.1rem;
 }
 
-#search-container button {
-    margin: auto;
-}
-
-#mid-container {
+nav {
     display: flex;
     justify-content: flex-end;
     padding: 1.rem;
+    border-bottom: 1px solid #cfcfcf;
 }
 
 #feed-container {
@@ -61,32 +61,31 @@ body {
 .cards {
     display: inline-block;
     border: 1px solid #000;
-    border-radius: 1px;
+    border-radius: 14px;
     font-size: 1rem;
     max-width: 33vh;
-    /* height: 65vh; */
     display: flex;
     text-align: center;
     display: block;
-    margin: 1% 1%;
+    margin: 3% 3%;
 }
 
 .cards img {
-    border-radius: 0.75rem;
+    border-radius: 14px;
     width: 33vh;
     height: 35vh;
     overflow: hidden;
 }
 
 .cards .btn-save{
-    height: 2rem 0 0 0;
-    width: 20vh;
-    height: 5vh;
-    border-radius: 0.3rem;
+    background-color: #ccc;
     border: transparent;
-    background-color: #FFFFFF;
+    border-radius: 4px;
     color: #0d0d0d;
-    margin-bottom: 3%;
+    width: 20vh;
+    height: 6vh;
+    font-size: 1rem;
+    margin-bottom: 1%;
 }
 
 #ul{
@@ -95,12 +94,4 @@ body {
 
 .nav-link{
     display: inline-block;
-}
-
-@media (min-width: 600px) and (max-width: 960px) {
-    
-    #search-container{
-        margin-left: 25%;
-        width: 50%;
-    }
 }

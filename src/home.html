@@ -7,39 +7,45 @@
     <title>Your Hair - Home</title>
 
     <link rel="stylesheet" href="./public/css/home.css">
+    <link rel="icon" type="imagem/png" href="./public/images/Logo_YourHair.png">
 </head>
 <body>
 
     <header>
-        <img src="./public/images/Logo_YourHair.png" alt="Logo do Your Hair" id="logo"> 
-        <h1>Your Hair</h1>
+        <a id="logo" href="./home.html"> <img src="./public/images/Logo_YourHair.png" alt="Logo do Your Hair" id="logo"></a>
     </header>
-
     
     <section>
         <div id="search-container">
             <input type="search" placeholder="O que deseja encontrar?">
-            <button type="submit">Procurar</button>
         </div>
 
-        <hr>
-
-        <div id="mid-container">
-            <ul>
+        <nav>
+            <ul id="ul">
                 <button>Seguidores</button>
                 <button>Seguindo</button>
 
-                <a href="#">Veja seu Perfil</a>
-                <a href="#">Configurações</a>
+                <a href="./perfil_usuario.html" class="nav-link">Veja seu Perfil</a>
+                <a href="./Profile_Cabeleireiro.html" class="nav-link">Cabeleireiros</a>
+                <a href="./home.html" class="nav-link">Configurações</a>
             </ul>
-        </div>
-
-        <hr>
+        </nav>
 
         <div id="feed-container">
 
             <article class="cards">
-                <img src="#" alt="Imagem da Publicação">
+                <img src="./public/images/hair_1.jpg" alt="Imagem da Publicação">
+
+                <div>
+                    <h6>Corte de Cabelo e Descrição</h6>
+                    <a href="./Profile_Cabeleireiro.html"><p>Username do Perfil</p></a>
+                    <p>R$ 30,00</p>
+                    <button class="btn-save">Salvar</button>
+                </div>
+            </article>
+
+            <article class="cards">
+                <img src="./public/images/hair_2.jpg" alt="Imagem da Publicação">
 
                 <div>
                     <h6>Corte de Cabelo e Descrição</h6>
@@ -50,7 +56,7 @@
             </article>
 
             <article class="cards">
-                <img src="#" alt="Imagem da Publicação">
+                <img src="./public/images/hair_3.jpg" alt="Imagem da Publicação">
 
                 <div>
                     <h6>Corte de Cabelo e Descrição</h6>
@@ -61,7 +67,18 @@
             </article>
 
             <article class="cards">
-                <img src="#" alt="Imagem da Publicação">
+                <img src="./public/images/hair_1.jpg" alt="Imagem da Publicação">
+
+                <div>
+                    <h6>Corte de Cabelo e Descrição</h6>
+                    <a href="./Profile_Cabeleireiro.html"><p>Username do Perfil</p></a>
+                    <p>R$ 30,00</p>
+                    <button class="btn-save">Salvar</button>
+                </div>
+            </article>
+
+            <article class="cards">
+                <img src="./public/images/hair_2.jpg" alt="Imagem da Publicação">
 
                 <div>
                     <h6>Corte de Cabelo e Descrição</h6>
@@ -72,18 +89,7 @@
             </article>
 
             <article class="cards">
-                <img src="#" alt="Imagem da Publicação">
-
-                <div>
-                    <h6>Corte de Cabelo e Descrição</h6>
-                    <a href="#"><p>Username do Perfil</p></a>
-                    <p>R$ 30,00</p>
-                    <button class="btn-save">Salvar</button>
-                </div>
-            </article>
-
-            <article class="cards">
-                <img src="#" alt="Imagem da Publicação">
+                <img src="./public/images/hair_3.jpg" alt="Imagem da Publicação">
 
                 <div>
                     <h6>Corte de Cabelo e Descrição</h6>
@@ -93,7 +99,7 @@
                 </div>
             </article>
         </div>
-
     </section>
+
 </body>
 </html>
