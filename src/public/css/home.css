@@ -48,6 +48,10 @@ nav {
     border-bottom: 1px solid #cfcfcf;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 #feed-container {
     width: 100%;
     margin-top: 1rem;
@@ -72,9 +76,13 @@ nav {
 
 .cards img {
     border-radius: 14px;
-    width: 33vh;
-    height: 35vh;
+    width: 30vh;
+    height: 30vh;
     overflow: hidden;
+}
+
+.cards img:hover{
+    cursor: pointer;
 }
 
 .cards .btn-save{
@@ -85,11 +93,24 @@ nav {
     width: 20vh;
     height: 6vh;
     font-size: 1rem;
-    margin-bottom: 1%;
+    margin-bottom: 3%;
+}
+
+.cards .btn-save:hover{
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
 }
 
 #ul{
     list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#li{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .nav-link{
