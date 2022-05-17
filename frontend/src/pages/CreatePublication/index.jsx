@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Hair - Criar Publicação</title>
-    
-    <link rel="stylesheet" href="../public/css/create_publication.css">
-    <link rel="icon" type="imagem/png" href="../public/images/Logo_YourHair.png">
-</head>
-<body>
-    <main>
+export default function CreatePublication() {
+    return (
+        <main>
         <div class="main-container">
             <form action="#" method="post" id="form-container">
                 <legend>Criar Publicação</legend>
 
                 <div class="title">
-                    <input type="text" placeholder="Nome do Corte">
+                    <input type="text" placeholder="Nome do Corte"/>
                 </div>
 
                 <div class="input-container description">
@@ -25,13 +15,13 @@
                 </div>
 
                 <div class="input-container image">
-                    <img src="#" alt="Referência da publicação">
-                    <input type="file">
+                    <img src="#" alt="Referência da publicação"/>
+                    <input type="file"/>
                 </div>
 
                 <div class="input-container price">
                     <label for="price">R$</label>
-                    <input type="number"">
+                    <input type="number"/>
                 </div>
 
                 <div id="button-container">
@@ -41,5 +31,5 @@
             </form>
         </div>
     </main>
-</body>
-</html>
+    )
+}

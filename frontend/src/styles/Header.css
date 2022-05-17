@@ -175,55 +175,6 @@ nav {
   padding-top: 0.2rem;
 }
 
-#feed-container {
-  width: 100%;
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 90%;
-  margin: auto;
-  justify-content: center;
-}
-
-.cards {
-  display: inline-block;
-  border: 1px solid #000;
-  border-radius: 14px;
-  font-size: 1rem;
-  max-width: 33vh;
-  display: flex;
-  text-align: center;
-  display: block;
-  margin: 3% 3%;
-}
-
-.cards img {
-  border-radius: 14px;
-  width: 30vh;
-  height: 30vh;
-  overflow: hidden;
-}
-
-.cards img:hover {
-  cursor: pointer;
-}
-
-.cards .btn-save {
-  background-color: #ccc;
-  border: transparent;
-  border-radius: 4px;
-  color: #0d0d0d;
-  width: 20vh;
-  height: 6vh;
-  font-size: 1rem;
-  margin-bottom: 3%;
-}
-
-.cards .btn-save:hover {
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-}
-
 .nav-link {
   display: inline-block;
 }
