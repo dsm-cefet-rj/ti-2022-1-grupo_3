@@ -8,7 +8,7 @@ export default function Card(props) {
 
             <div>
                 <h6>Corte de Cabelo e Descrição</h6>
-                <a href="Profile_Cabeleireiro.html">
+                <a href="profilecabelreiro.jsx">
                     <p>Username do Perfil</p>
                 </a>
                 <p>{props.preco}</p>
