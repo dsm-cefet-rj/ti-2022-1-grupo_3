@@ -4,6 +4,7 @@
     box-sizing: border-box;
     padding: 0;
     font-family: 'Roboto', sans-serif;
+    font-size: x-large;
     color: #0D0D0D;
 }
 
@@ -13,7 +14,7 @@
     border-radius: 0.75rem;
     font-size: 1rem;
     width: 33vh;
-    height: 65vh;
+    height: 60vh;
     display: flex;
     text-align: center;
     display: block;
@@ -38,7 +39,7 @@
     color: #f2f2f2;
     width: 20vh;
     height: 50px;
-    font-size: 1rem;
+    font-size: 2rem;
     margin-bottom: 1%;
 }
 

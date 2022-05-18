@@ -1,4 +1,4 @@
-import "../../styles/profile_cabeleireiros.css"
+import "../../styles/ProfileCabelereiro.css"
 
 export default function ProfileCabelereiro() {
     return (

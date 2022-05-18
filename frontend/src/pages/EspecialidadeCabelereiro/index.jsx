@@ -1,6 +1,6 @@
-import "../../styles/especialidade_cabelereiro.css"
+import "../../styles/EspecialidadeCabelereiro.css"
 
-export default function especialidade() {
+export default function EspecialidadeCabelereiro() {
     return (
         <main>
             <header class="user-profile-container">
