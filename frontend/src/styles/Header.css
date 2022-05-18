@@ -170,10 +170,13 @@ nav {
 }
 
 .search-bar button .icon {
-  color: #aaa;
   cursor: pointer;
   font-size: 3rem;
   padding-top: 0.2rem;
+}
+
+.search-bar button .icon > * {
+  color: #aaa;
 }
 
 .nav-link {
