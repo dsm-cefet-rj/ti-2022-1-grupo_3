@@ -18,7 +18,9 @@ body {
 }
 
 main {
-    padding: 0 10%;
+    padding: 0 0;
+    width: 100%;
+
 }
 
 header {
@@ -36,7 +38,7 @@ ul {
 }
 
 .user-profile {
-    min-width: 90%;
+    min-width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
