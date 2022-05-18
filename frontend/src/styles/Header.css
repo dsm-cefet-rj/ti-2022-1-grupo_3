@@ -63,7 +63,7 @@ nav {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.menu-icons ion-icon {
+.menu-icons .icon {
   font-size: 3.5rem;
   color: #aaa;
   cursor: pointer;
@@ -96,7 +96,8 @@ nav {
   transition: 0.15s ease-in-out;
 }
 
-#nav-list li:hover {
+#nav-list li:hover, #nav-list li:hover .icon > * {
+  z-index: 1;
   color: blue;
   transform: scale(1.05) translateY(-15%);
 }
@@ -105,7 +106,7 @@ nav {
   color: blue;
 }
 
-#nav-list li ion-icon {
+#nav-list li .icon {
   font-size: 2rem;
   margin-right: 1rem;
 }
@@ -122,7 +123,7 @@ nav {
   left: 1.5rem;
 }
 
-.menu-icons.close ion-icon {
+.menu-icons.close .icon {
   color: tomato;
   opacity: 0.7;
 }
@@ -168,7 +169,7 @@ nav {
   padding: 0.5rem;
 }
 
-.search-bar button ion-icon {
+.search-bar button .icon {
   color: #aaa;
   cursor: pointer;
   font-size: 3rem;
@@ -180,7 +181,7 @@ nav {
 }
 
 @media screen and (min-width: 700px) {
-  header {
+  header nav {
     height: 8rem;
   }
 
