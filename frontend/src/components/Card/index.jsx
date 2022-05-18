@@ -6,7 +6,7 @@ export default function Card(props) {
         <article className="cards">
             <img src={props.image} alt="Imagem da Publicação"/>
 
-            <div>
+            <div className="card-container">
                 <h6>Corte de Cabelo e Descrição</h6>
                 <a href="Profile_Cabelereiro.html">
                     <p>Username do Perfil</p>
