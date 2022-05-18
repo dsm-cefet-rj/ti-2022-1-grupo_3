@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoClose, IoPersonOutline, IoCutOutline, IoSettingsOutline, IoMenu, IoSearch } from "react-icons/io5";
 import "../../styles/Header.css";
+import { Link } from "react-router-dom";
 
 export default function Header(props) {
   const [isNavActive, setNavActive] = useState(false);

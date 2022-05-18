@@ -1,13 +1,18 @@
-import "../../styles/profile_cabeleireiros.css"
+import Header from "../../components/Header"
+import Card from "../../components/Card"
+import Footer from "../../components/Footer"
+
+import "../../styles/ProfileCabelereiro.css"
 
 export default function ProfileCabelereiro() {
     return (
         <main>
+            <Header/>
             <header class="user-profile-container">
                 <div class="user-profile">
                     <div class="user-pp-wrapper">
                         <img
-                            src="public/images/placeholder_cabeleireiro.jpg"
+                            src="./placeholder_cabeleireiro.jpg"
                             alt="Foto de perfil do cabelereiro"
                         />
                     </div>
@@ -50,31 +55,18 @@ export default function ProfileCabelereiro() {
                         </a>
                     </ul>
                 </div>
-                <article class="cut-container">
-                    <img
-                        src="public/images/hair_1.jpg"
-                        alt="Imagem exemplo do corte 1"
-                    />
-                    <p>Descrição do corte 1</p>
-                    <button class="edit" type="button">Editar</button>
-                </article>
-                <article class="cut-container">
-                    <img
-                        src="public/images/hair_2.jpg"
-                        alt="Imagem exemplo do corte 2"
-                    />
-                    <p>Descrição do corte 2</p>
-                    <button class="edit" type="button">Editar</button>
-                </article>
-                <article class="cut-container">
-                    <img
-                        src="public/images/hair_3.jpg"
-                        alt="Imagem exemplo do corte 3"
-                    />
-                    <p>Descrição do corte 3</p>
-                    <button class="edit" type="button">Editar</button>
-                </article>
+                <div id="feed-container">
+                    <Card image="./exemplo1.jpeg" preco="R$ 30,00"/>
+                    <Card image="./exemplo2.jpeg" preco="R$ 50,00"/>
+                    <Card image="./exemplo3.jpeg" preco="R$ 100,00"/>
+                    <Card image="./exemplo4.jpeg" preco="R$ 46,00"/>
+                    <Card image="./exemplo1.jpeg" preco="R$ 30,00"/>
+                    <Card image="./exemplo2.jpeg" preco="R$ 50,00"/>
+                    <Card image="./exemplo3.jpeg" preco="R$ 100,00"/>
+                    <Card image="./exemplo4.jpeg" preco="R$ 46,00"/>
+                </div>
             </section>
+            <Footer/>
         </main>
     )
 }
