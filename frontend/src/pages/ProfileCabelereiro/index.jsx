@@ -8,36 +8,36 @@ export default function ProfileCabelereiro() {
     return (
         <main>
             <Header/>
-            <header class="user-profile-container">
-                <div class="user-profile">
-                    <div class="user-pp-wrapper">
+            <header className="user-profile-container">
+                <div className="user-profile">
+                    <div className="user-pp-wrapper">
                         <img
                             src="./placeholder_cabeleireiro.jpg"
                             alt="Foto de perfil do cabelereiro"
                         />
                     </div>
 
-                    <h2 class="user-name">Nome do cabeleireiro</h2>
-                    <h2 class="user-name">Nome do cabelereiro</h2>
+                    <h2 className="user-name">Nome do cabeleireiro</h2>
+                    <h2 className="user-name">Nome do cabelereiro</h2>
 
-                    <p class="user-description">
+                    <p className="user-description">
                         Breve descrição do cabeleireiro e de seu trabalho
                         Breve descrição do cabelereiro e de seu trabalho
                     </p>
 
-                    <button class="edit profile" type="button">
+                    <button className="edit profile" type="button">
                         Editar perfil
                     </button>
-                    <div class="user-stats">
-                        <dl class="stat">
+                    <div className="user-stats">
+                        <dl className="stat">
                             <dt>Nota</dt>
                             <dd>4.8</dd>
                         </dl>
-                        <dl class="stat">
+                        <dl className="stat">
                             <dt>Fãs</dt>
                             <dd>674</dd>
                         </dl>
-                        <dl class="stat">
+                        <dl className="stat">
                             <dt>Seguidores</dt>
                             <dd>580</dd>
                         </dl>
@@ -46,8 +46,8 @@ export default function ProfileCabelereiro() {
             </header>
             <section>
                 <div>
-                    <ul class="profile-tabs">
-                        <a class="selected" href="#">
+                    <ul className="profile-tabs">
+                        <a className="selected" href="#">
                             <li>Meus cortes</li>
                         </a>
                         <a href="especialidade_cabelereiro.html">

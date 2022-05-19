@@ -8,50 +8,53 @@ export default function ProfileUser() {
     return(
         <main>
         <Header/>
-        <header class="user-profile-container">
-            <div class="user-profile">
-                <div class="user-pp-wrapper">
+        
+        <header className="user-profile-container">
+            <div className="user-profile">
+                <div className="user-pp-wrapper">
                     <img
                         src="./exemplo1.jpeg"
                         alt="Foto de perfil"
                     />
                 </div>
 
-                <h2 class="user-name">Nome</h2>
+                <h2 className="user-name">Nome</h2>
 
-                <p class="user-description">
+                <p className="user-description">
                     Breve descrição do Usuario Breve descrição do Usuario
                 </p>
 
-                <button class="edit profile" type="button">
+                <button className="edit profile" type="button">
                     Editar perfil
                 </button>
-                
+
+                <div className="user-stats">
+                    <dl className="stat">
+                        <dt>Fotos</dt>
+                        <dd>2</dd>
+                    </dl>
+                    <dl className="stat">
+                        <dt>Seguidores</dt>
+                        <dd>674</dd>
+                    </dl>
+                    <dl className="stat">
+                        <dt>Seguindo</dt>
+                        <dd>580</dd>
+                    </dl>
+                </div>
             </div>
         </header>
+        
         <section>
-            <div>
-                <ul class="profile-tabs">
-                    <a class="selected" href="#">
-                        <li>Meus cortes</li>
-                    </a>
-                    <a href="especialidade_cabelereiro.html">
-                        <li>Minhas especialidades</li>
-                    </a>
-                </ul>
+            <div id="post-options">
+                <p>Meus Cortes</p>
+                <p>Cabelereiro</p>
             </div>
+
             <div id="feed-container">
                 <Card image="./exemplo1.jpeg" preco="R$ 30,00"/>
                 <Card image="./exemplo1.jpeg" preco="R$ 30,00"/>
             </div>
-
-            <br/>
-            <nav>
-                <ul>
-                    <a href="#"><li>Suas Avaliações</li></a>
-                    <a href="#"><li>Ultimos Locais</li></a>
-                </ul>
-            </nav>
         </section>
         <Footer/>
     </main>

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { IoClose, IoPersonOutline, IoCutOutline, IoSettingsOutline, IoMenu, IoSearch } from "react-icons/io5";
-import "../../styles/Header.css";
 import { Link } from "react-router-dom";
+
+import "../../styles/Header.css";
 
 export default function Header(props) {
   const [isNavActive, setNavActive] = useState(false);
@@ -11,9 +12,9 @@ export default function Header(props) {
       <div class="container">
         <nav>
           <div id="logo-container">
-            <a id="logo" href="./home.html">
-              <img src="./Logo_YourHair.png" alt="Logo do Your Hair" id="logo" />
-            </a>
+            <Link to="/">
+              <a id="logo"><img src="./Logo_YourHair.png" alt="Logo do Your Hair" id="logo"/></a>
+            </Link>
           </div>
 
           <div id="main-container" className={isNavActive && "active"}>
@@ -34,24 +35,24 @@ export default function Header(props) {
               </div>
 
               <li>
-                <IoPersonOutline class="icon" />
-                <a href="./perfil_usuario.html" class="nav-link">
-                  Seu Perfil
-                </a>
+                <Link to="/me">
+                  <IoPersonOutline class="icon" />
+                  <a class="nav-link">Seu Perfil</a>
+                </Link>
               </li>
 
               <li>
-                <IoCutOutline class="icon" />
-                <a href="./profile_Cabeleireiro.html" class="nav-link">
-                  Cabeleireiros
-                </a>
+                <Link to="/cabeleireiro">
+                  <IoCutOutline class="icon" />
+                  <a class="nav-link">Cabeleireiros</a>
+                </Link>
               </li>
 
               <li>
-                <IoSettingsOutline class="icon" />
-                <a href="./home.html" class="nav-link">
-                  Configurações
-                </a>
+                <Link to="/">
+                  <IoSettingsOutline class="icon" />
+                  <a class="nav-link">Configurações</a>
+                </Link>
               </li>
             </ul>
 

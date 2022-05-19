@@ -1,17 +1,51 @@
+@import url('https://fonts.googleapis.com/css2? family= Roboto:wght@100;300;400;500 & display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+}
+
+html,
 body {
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    border-spacing: 0;
+    box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    margin-left: 10%;
 }
 
-.profile{
+main {
+    padding: 0 0;
+    width: 100%;
+
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.user-profile {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding-top: 2%;
-}
-
-#button_profile{
-    position: relative;
-    top: 30%;
+    padding: 0.4em;
 }
 
 .user-pp-wrapper {
@@ -21,7 +55,54 @@ body {
     border: 0.2rem solid black;
 }
 
-#button_corte{
-    padding: 1%;
+.user-pp-wrapper img {
+    object-fit: cover;
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
 }
 
+.user-name {
+    margin-top: 0.2em;
+    margin-bottom: 0.1em;
+}
+
+.user-description {
+    margin-bottom: 0.2em;
+}
+
+.edit {
+    background-color: transparent;
+    color: blue;
+    font-weight: 700;
+}
+
+.edit.profile {
+    margin-bottom: 1.8em;
+}
+
+.user-stats {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    line-height: 150%;
+}
+
+.user-stats dl {
+    width: 8em;
+}
+
+.user-stats dl dt {
+    font-weight: 700;
+}
+
+#post-options{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    line-height: 150%;
+}
+
+button.edit:hover {
+    text-decoration: underline;
+}
