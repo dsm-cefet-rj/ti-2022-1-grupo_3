@@ -1,10 +1,35 @@
+import React from "react"
+import { useState } from "react"
+
 import Header from "../../components/Header"
 import Card from "../../components/Card"
 import Footer from "../../components/Footer"
 
 import "../../styles/ProfileCabelereiro.css"
 
-export default function ProfileCabelereiro() {
+export default function ProfileCabelereiro(props) {
+
+    let [follower, setFollower] = useState(0);
+    let [follow, setFollow] = useState("Seguir");
+
+    function handleFollow(){
+        if(follow === "Seguindo"){
+            return(setFollower(follower - 1), setFollow("Seguir"));
+        } else {
+            return(setFollower(follower + 1), setFollow("Seguindo"));
+        }
+    }
+
+    const renderProdcuct = (product) => {
+        return (
+          <React.Fragment>
+            {product.status !== "Agendado" && (
+              <Card product={product} key={product.name} />
+            )}
+          </React.Fragment>
+        );
+    };
+
     return (
         <main>
             <Header/>
@@ -18,28 +43,27 @@ export default function ProfileCabelereiro() {
                     </div>
 
                     <h2 className="user-name">Nome do cabeleireiro</h2>
-                    <h2 className="user-name">Nome do cabelereiro</h2>
 
                     <p className="user-description">
                         Breve descrição do cabeleireiro e de seu trabalho
-                        Breve descrição do cabelereiro e de seu trabalho
                     </p>
 
-                    <button className="edit profile" type="button">
-                        Editar perfil
+                    <button className="edit profile" type="button" onClick={handleFollow}>
+                        {`${follow}`}
                     </button>
+
                     <div className="user-stats">
                         <dl className="stat">
                             <dt>Nota</dt>
                             <dd>4.8</dd>
                         </dl>
                         <dl className="stat">
-                            <dt>Fãs</dt>
+                            <dt>Seguindo</dt>
                             <dd>674</dd>
                         </dl>
                         <dl className="stat">
                             <dt>Seguidores</dt>
-                            <dd>580</dd>
+                            <p>{follower}</p>
                         </dl>
                     </div>
                 </div>
@@ -55,16 +79,11 @@ export default function ProfileCabelereiro() {
                         </a>
                     </ul>
                 </div>
+
                 <div id="feed-container">
-                    <Card image="./exemplo1.jpeg" preco="R$ 30,00"/>
-                    <Card image="./exemplo2.jpeg" preco="R$ 50,00"/>
-                    <Card image="./exemplo3.jpeg" preco="R$ 100,00"/>
-                    <Card image="./exemplo4.jpeg" preco="R$ 46,00"/>
-                    <Card image="./exemplo1.jpeg" preco="R$ 30,00"/>
-                    <Card image="./exemplo2.jpeg" preco="R$ 50,00"/>
-                    <Card image="./exemplo3.jpeg" preco="R$ 100,00"/>
-                    <Card image="./exemplo4.jpeg" preco="R$ 46,00"/>
+                    {props.products.map(renderProdcuct)}
                 </div>
+
             </section>
             <Footer/>
         </main>

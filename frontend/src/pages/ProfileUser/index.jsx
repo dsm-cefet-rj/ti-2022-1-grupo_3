@@ -1,10 +1,23 @@
+import React from "react"
+
 import Header from "../../components/Header"
 import Card from "../../components/Card"
 import Footer from "../../components/Footer"
 
 import "../../styles/ProfileUser.css"
 
-export default function ProfileUser() {
+export default function ProfileUser(props) {
+
+    const renderProdcuct = (product) => {
+        return (
+          <React.Fragment>
+            {product.status !== "Agendado" && (
+              <Card product={product} key={product.name} />
+            )}
+          </React.Fragment>
+        );
+    };
+
     return(
         <main>
         <Header/>
@@ -13,7 +26,7 @@ export default function ProfileUser() {
             <div className="user-profile">
                 <div className="user-pp-wrapper">
                     <img
-                        src="./exemplo1.jpeg"
+                        src= "../../images/exemplo1.jpeg"
                         alt="Foto de perfil"
                     />
                 </div>
@@ -52,9 +65,9 @@ export default function ProfileUser() {
             </div>
 
             <div id="feed-container">
-                <Card image="./exemplo1.jpeg" preco="R$ 30,00"/>
-                <Card image="./exemplo1.jpeg" preco="R$ 30,00"/>
+                {props.products.map(renderProdcuct)}
             </div>
+
         </section>
         <Footer/>
     </main>

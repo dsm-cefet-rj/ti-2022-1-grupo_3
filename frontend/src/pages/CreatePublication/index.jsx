@@ -1,43 +1,49 @@
-import Footer from "../../components/Footer"
-import Header from "../../components/Header"
+import { React, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import "../../styles/Schendule.css"
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 
-export default function CreatePublication() {
+import "../../styles/Schendule.css";
+
+export default function CreatePublication(props) {
+
+    const [newProduct, setNewProduct] = useState({
+        "id": props.products.length,
+    });
+
+    let navigate = useNavigate();
+
+    function handleInputChange(e){
+        setNewProduct({...newProduct, [e.target.name]: e.target.value})
+    }
+
+    function createProduct(e){
+        e.preventDefault();
+        props.setProducts(props.products.concat(newProduct));
+        alert("Publicação Criada com sucesso!");
+        navigate("/");
+    }
+
     return (
         <>
         <Header/>
-            <main>
-                <div className="main-container">
-                    <form action="#" method="post" id="form-container">
-                        <legend>Criar Publicação</legend>
+            <div className="main-container">
+                <form action="#" method="post" id="form-container">
+                    <legend>Criar Publicação</legend>
 
-                        <div className="title">
-                            <input type="text" placeholder="Nome do Corte"/>
-                        </div>
+                    <label for="title" className="form-content">Título:</label>
+                    <input type="text" name="data" className="form-content" value={newProduct.name} onChange={handleInputChange} required/>
 
-                        <div className="input-container description">
-                            <label for="description" className="form-content">Descrição:</label>
-                            <textarea name="description" placeholder="Descrição da publicação"></textarea>
-                        </div>
+                    <label for="price" className="form-content">Preço:</label>
+                    <input type="number" name="data" className="form-content" value={newProduct.price} onChange={handleInputChange} required/>
 
-                        <div className="input-container image">
-                            <img src="#" alt="Referência da publicação"/>
-                            <input type="file"/>
-                        </div>
+                    <label for="images" className="form-content">Image:</label>
+                    <input type="file" name="data" className="form-content"/>
 
-                        <div className="input-container price">
-                            <label for="price">R$</label>
-                            <input type="number"/>
-                        </div>
-
-                        <div id="button-container">
-                            <button type="text" href="./Profile_Cabeleireiro.html">Voltar</button>
-                            <button type="text" className="submit"><a href="./Profile_Cabeleireiro.html">Publicar</a></button>
-                        </div>
-                    </form>
-                </div>
-            </main>
+                    <button type="submit" id="submit" onClick={(e)=>createProduct(e)}>Publicar</button>
+                </form>
+            </div>
         <Footer/>
         </>
     );
