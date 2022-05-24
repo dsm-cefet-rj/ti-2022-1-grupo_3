@@ -37,7 +37,7 @@ export default function ProfileCabelereiro(props) {
                 <div className="user-profile">
                     <div className="user-pp-wrapper">
                         <img
-                            src="./placeholder_cabeleireiro.jpg"
+                            src="../images/placeholder_cabeleireiro.jpg"
                             alt="Foto de perfil do cabelereiro"
                         />
                     </div>

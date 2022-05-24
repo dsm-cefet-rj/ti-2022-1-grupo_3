@@ -1,7 +1,7 @@
 import Footer from "../../components/Footer"
 import Header from "../../components/Header"
 
-import "../../styles/Register.css"
+import "../../styles/register.css"
 
 export default function Register() {
     return (

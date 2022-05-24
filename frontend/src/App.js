@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import ProfileCabelereiro from "./pages/ProfileCabelereiro";
 import ProfileUser from "./pages/ProfileUser";
 import Register from "./pages/Register";
-import Schedule from "./pages/Schedule";
+import Schedule from "./pages/schedule";
 
 import exemplo1 from "./images/exemplo1.jpeg"
 import exemplo2 from "./images/exemplo2.jpeg"
@@ -22,35 +22,35 @@ function App() {
         images: [exemplo1],
         name: "Cabelo Loiro",
         price: 30.00,
-        seller: "Cabeleireiro Top",
+        seller: "Cabeleireiro A",
       },
       {
         id: 1,
         images: [exemplo2],
         name: "Cabelo Curto",
         price: 45.00,
-        seller: "Cabeleireiro Legal",
+        seller: "Cabeleireiro B",
       },
       {
         id: 2,
         images: [exemplo3],
         name: "Cabelo Cacheado",
         price: 37.50,
-        seller: "Cabeleireiro Trem",
+        seller: "Cabeleireiro C",
       },
       {
         id: 3,
         images: [exemplo4],
         name: "Cabelo Curto Liso",
         price: 100.00,
-        seller: "Cabeleireiro Cansei",
+        seller: "Cabeleireiro D",
       },
       {
         id: 4,
         images: [exemplo1],
-        name: "Cabelo Loiro dnv",
-        price: 666.00,
-        seller: "Cabeleireiro AAAAaaaa",
+        name: "Cabelo Comprido",
+        price: 80.00,
+        seller: "Cabeleireiro E",
       },
     ]
   );
