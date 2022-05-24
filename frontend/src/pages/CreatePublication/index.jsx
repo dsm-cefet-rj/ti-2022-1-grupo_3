@@ -1,10 +1,10 @@
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
-import "../../styles/Schendule.css";
+import "../../styles/Schenduling.css";
 
 export default function CreatePublication(props) {
 
@@ -33,13 +33,13 @@ export default function CreatePublication(props) {
                     <legend>Criar Publicação</legend>
 
                     <label for="title" className="form-content">Título:</label>
-                    <input type="text" name="data" className="form-content" value={newProduct.name} onChange={handleInputChange} required/>
+                    <input type="text" name="name" className="form-content" value={newProduct.name} onChange={handleInputChange} required/>
 
                     <label for="price" className="form-content">Preço:</label>
-                    <input type="number" name="data" className="form-content" value={newProduct.price} onChange={handleInputChange} required/>
+                    <input type="number" name="price" className="form-content" value={newProduct.price} onChange={handleInputChange} required/>
 
                     <label for="images" className="form-content">Image:</label>
-                    <input type="file" name="data" className="form-content"/>
+                    <input type="file" name="images" className="form-content" value={newProduct.images} onChange={handleInputChange} required/>
 
                     <button type="submit" id="submit" onClick={(e)=>createProduct(e)}>Publicar</button>
                 </form>
