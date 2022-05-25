@@ -12,20 +12,18 @@ export default function Header(props) {
       <div class="container">
         <nav>
           <div id="logo-container">
-            <Link to="/">
-              <a id="logo"><img src="./Logo_YourHair.png" alt="Logo do Your Hair" id="logo"/></a>
+            <Link to="/" id="logo">
+              <img src="./Logo_YourHair.png" alt="Logo do Your Hair" id="logo"/>
             </Link>
           </div>
 
           <div id="main-container" className={isNavActive && "active"}>
-            <div class="search-container">
+            <div class="search-container" title="O que deseja encontrar?">
               <form class="search-bar">
-                <div class="input-container">
-                  <input type="search" placeholder="O que deseja encontrar?" />
-                  <button type="submit">
-                    <IoSearch name="menu" class="icon" />
-                  </button>
-                </div>
+                <input type="search" placeholder="O que deseja encontrar?" />
+                <button type="submit">
+                  <IoSearch name="menu" class="icon" />
+                </button>
               </form>
             </div>
 
@@ -37,21 +35,21 @@ export default function Header(props) {
               <li>
                 <Link to="/me">
                   <IoPersonOutline class="icon" />
-                  <a class="nav-link">Seu Perfil</a>
+                  <span class="nav-link">Seu Perfil</span>
                 </Link>
               </li>
 
               <li>
                 <Link to="/cabeleireiro">
                   <IoCutOutline class="icon" />
-                  <a class="nav-link">Cabeleireiros</a>
+                  <span class="nav-link">Cabeleireiros</span>
                 </Link>
               </li>
 
               <li>
                 <Link to="/">
                   <IoSettingsOutline class="icon" />
-                  <a class="nav-link">Configurações</a>
+                  <span class="nav-link">Configurações</span>
                 </Link>
               </li>
             </ul>
