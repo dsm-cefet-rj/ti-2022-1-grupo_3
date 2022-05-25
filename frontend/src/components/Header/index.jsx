@@ -10,7 +10,7 @@ export default function Header(props) {
   return (
     <header>
       <div class="container">
-        <nav>
+        <nav id="header-nav">
           <div id="logo-container">
             <Link to="/" id="logo">
               <img src="./Logo_YourHair.png" alt="Logo do Your Hair" id="logo"/>

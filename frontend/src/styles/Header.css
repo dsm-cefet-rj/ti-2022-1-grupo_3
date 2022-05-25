@@ -20,9 +20,9 @@ body {
   background-color: #fafafa;
 }
 
-input {
-  border: none;
-  outline: none;
+img {
+  object-fit: cover;
+  z-index: -1;
 }
 
 .container {
@@ -32,32 +32,18 @@ input {
   max-width: 144rem;
 }
 
-img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-}
-
-ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-}
-
-li {
-  list-style: none;
-  display: flex;
-  justify-content: flex-end;
-}
-
-nav {
+#header-nav {
   box-sizing: content-box;
-  /* height: 3.5rem; */
-  --nav-height: 3.5rem;
 }
 
 #logo-container {
   max-width: 3.5rem;
+}
+
+#logo-container img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 nav {
@@ -89,6 +75,7 @@ nav {
 
 #nav-list {
   display: flex;
+  list-style: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -146,6 +133,8 @@ nav {
 }
 #nav-list li {
   font-size: calc(0.45 * var(--nav-height));
+  display: flex;
+  justify-content: flex-end;
 }
 
 #nav-list li .icon {
@@ -190,6 +179,8 @@ nav {
 }
 
 .search-bar input {
+  border: none;
+  outline: none;
   display: inline-block;
   background-color: transparent;
   padding: 8px 0 8px 16px;
@@ -211,6 +202,10 @@ nav {
 .search-bar .icon {
   cursor: pointer;
   font-size: 2.2rem;
+}
+
+.search-bar button:hover .icon > * {
+  color: blue;
 }
 
 .search-bar button .icon > * {
