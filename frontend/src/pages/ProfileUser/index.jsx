@@ -4,6 +4,8 @@ import Header from "../../components/Header"
 import Card from "../../components/Card"
 import Footer from "../../components/Footer"
 
+import { Link } from "react-router-dom";
+
 import "../../styles/ProfileUser.css"
 import userPicture from "../../images/exemplo1.jpeg";
 
@@ -38,9 +40,9 @@ export default function ProfileUser(props) {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
 
-                <button className="edit profile" type="button">
-                    Editar perfil
-                </button>
+                <Link to={`./EditProfile`}>
+                        <button className="btn-salvar">Editar Perfil</button>
+                </Link>
 
                 <div className="user-stats">
                     <dl className="stat">
