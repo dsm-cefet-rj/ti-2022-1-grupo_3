@@ -6,6 +6,7 @@ import EspecialidadeCabelereiro from "./pages/EspecialidadeCabelereiro";
 import Home from "./pages/Home";
 import ProfileCabelereiro from "./pages/ProfileCabelereiro";
 import ProfileUser from "./pages/ProfileUser";
+import EditProfile from './pages/EditProfile';
 import Register from "./pages/Register";
 import Schedule from "./pages/Schedule";
 import Scheduling from "./pages/Scheduling";
@@ -120,6 +121,7 @@ function App() {
         <Route path="/" element={<Home products={products}/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/me" element={<ProfileUser products={products}/>}/>
+        <Route path="/me/editProfile" element={<EditProfile/>}/>
         <Route path="/newPublication" element={<CreatePublication products={products} setProducts={setProducts}/>}/>
         <Route path="/me/scheduling/:id" element={<Scheduling products={products} setProducts={setProducts} bookings={bookings} setBookings={setBookings}/>}/>
         <Route path="/cabeleireiro" element={<ProfileCabelereiro products={products}/>}/>

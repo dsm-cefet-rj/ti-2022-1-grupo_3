@@ -4,6 +4,8 @@ import Header from "../../components/Header"
 import Card from "../../components/Card"
 import Footer from "../../components/Footer"
 
+import { Link } from "react-router-dom";
+
 import "../../styles/ProfileUser.css"
 
 export default function ProfileUser(props) {
@@ -37,9 +39,9 @@ export default function ProfileUser(props) {
                     Breve descrição do Usuario Breve descrição do Usuario
                 </p>
 
-                <button className="edit profile" type="button">
-                    Editar perfil
-                </button>
+                <Link to={`./EditProfile`}>
+                        <button className="btn-salvar">Editar Perfil</button>
+                </Link>
 
                 <div className="user-stats">
                     <dl className="stat">
