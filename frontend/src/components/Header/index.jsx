@@ -9,59 +9,59 @@ export default function Header(props) {
 
   return (
     <header>
-      <div class="container">
+      <div className="container">
         <nav id="header-nav">
           <div id="logo-container">
             <Link to="/" id="logo">
-              <img src="./Logo_YourHair.png" alt="Logo do Your Hair" id="logo"/>
+              <img src={process.env.PUBLIC_URL + '/Logo_YourHair.png'} alt="Logo do Your Hair" id="logo"/>
             </Link>
           </div>
 
           <div id="main-container" className={isNavActive && "active"}>
-            <div class="search-container" title="O que deseja encontrar?">
-              <form class="search-bar">
+            <div className="search-container" title="O que deseja encontrar?">
+              <form className="search-bar">
                 <input type="search" placeholder="O que deseja encontrar?" />
                 <button type="submit">
-                  <IoSearch name="menu" class="icon" />
+                  <IoSearch name="menu" className="icon" />
                 </button>
               </form>
             </div>
 
             <ul id="nav-list">
-              <div class="menu-icons close" onClick={() => setNavActive(false)}>
-                <IoClose class="icon" />
+              <div className="menu-icons close" onClick={() => setNavActive(false)}>
+                <IoClose className="icon" />
               </div>
 
               <li>
                 <Link to="/me">
-                  <IoPersonOutline class="icon" />
-                  <span class="nav-link">Seu Perfil</span>
+                  <IoPersonOutline className="icon" />
+                  <span className="nav-link">Seu Perfil</span>
                 </Link>
               </li>
 
               <li>
                 <Link to="/cabeleireiro">
-                  <IoCutOutline class="icon" />
-                  <span class="nav-link">Cabeleireiros</span>
+                  <IoCutOutline className="icon" />
+                  <span className="nav-link">Cabeleireiros</span>
                 </Link>
               </li>
 
               <li>
                 <Link to="/">
-                  <IoSettingsOutline class="icon" />
-                  <span class="nav-link">Configurações</span>
+                  <IoSettingsOutline className="icon" />
+                  <span className="nav-link">Configurações</span>
                 </Link>
               </li>
             </ul>
 
             <div
-              class="menu-icons open"
+              className="menu-icons open"
               onClick={() => {
                 console.log("a");
                 setNavActive(true);
               }}
             >
-              <IoMenu class="icon" />
+              <IoMenu className="icon" />
             </div>
           </div>
         </nav>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function CardSchendule(props) {
     return(
         <>
-        <div class="d-flex shadow p-3 mb-5 bg-white rounded bd-highlight justify-content-start">
+        <div className="d-flex shadow p-3 mb-5 bg-white rounded bd-highlight justify-content-start">
             <h4>
                 <img src={props.booking.images} width="40" height="40"  alt=""/>
                 <Link to={"/"}> <span>{props.booking.name}</span> - R$ <span>{props.booking.price}</span></Link>             

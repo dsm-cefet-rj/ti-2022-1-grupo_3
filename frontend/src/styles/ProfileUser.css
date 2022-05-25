@@ -74,13 +74,10 @@ ul {
     margin-bottom: 0.2em;
 }
 
-.edit {
+.btn-salvar {
     background-color: transparent;
     color: blue;
     font-weight: 700;
-}
-
-.edit.profile {
     margin-bottom: 1.8em;
 }
 
