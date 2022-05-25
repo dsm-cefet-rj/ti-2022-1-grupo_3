@@ -114,23 +114,25 @@ button.edit:hover {
 
 .profile-tabs {
     display: flex;
+    justify-content: center;
     width: 100%;
 }
 
-/* Create a circle next to selected a to indicate selection */
-.profile-tabs a {
+.profile-tabs button {
     position: relative;
     text-decoration: none;
     color: #d1d1d1;
     font-weight: 700;
     margin: 2em 1em;
+    border: none;
+    background-color: transparent;
 }
 
-.profile-tabs a.selected {
+.profile-tabs button.selected {
     color: black;
 }
 
-.profile-tabs a.selected::before {
+.profile-tabs button.selected::before {
     content: '';
     position: absolute;
     top: 150%;

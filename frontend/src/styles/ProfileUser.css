@@ -25,7 +25,7 @@ main {
 
 }
 
-header {
+.user-profile-container {
     display: flex;
     justify-content: center;
     border-bottom: 1px solid #cfcfcf;
@@ -50,24 +50,27 @@ ul {
 
 .user-pp-wrapper {
     border-radius: 50%;
+    overflow: hidden;
     width: 10em;
     height: 10em;
     border: 0.2rem solid black;
+    margin-bottom: 1em;
 }
 
 .user-pp-wrapper img {
     object-fit: cover;
-    border-radius: inherit;
     width: inherit;
     height: inherit;
 }
 
 .user-name {
+    font-size: 1.2em;
     margin-top: 0.2em;
     margin-bottom: 0.1em;
 }
 
 .user-description {
+    color: lightslategray;
     margin-bottom: 0.2em;
 }
 
