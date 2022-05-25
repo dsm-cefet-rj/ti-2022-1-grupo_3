@@ -120,7 +120,7 @@ function App() {
         <Route path="/" element={<Home products={products}/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/me" element={<ProfileUser products={products}/>}/>
-        <Route path="/me/newPublication" element={<CreatePublication products={products} setProducts={setProducts}/>}/>
+        <Route path="/newPublication" element={<CreatePublication products={products} setProducts={setProducts}/>}/>
         <Route path="/me/scheduling/:id" element={<Scheduling products={products} setProducts={setProducts} bookings={bookings} setBookings={setBookings}/>}/>
         <Route path="/cabeleireiro" element={<ProfileCabelereiro products={products}/>}/>
         <Route path="/cabeleireiro/especialidade" element={<EspecialidadeCabelereiro products={products}/>}/>
