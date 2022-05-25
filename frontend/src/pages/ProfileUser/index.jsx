@@ -5,6 +5,7 @@ import Card from "../../components/Card"
 import Footer from "../../components/Footer"
 
 import "../../styles/ProfileUser.css"
+import userPicture from "../../images/exemplo1.jpeg";
 
 export default function ProfileUser(props) {
 
@@ -26,15 +27,15 @@ export default function ProfileUser(props) {
             <div className="user-profile">
                 <div className="user-pp-wrapper">
                     <img
-                        src= "../../images/exemplo1.jpeg"
+                        src={userPicture}
                         alt="Foto de perfil"
                     />
                 </div>
 
-                <h2 className="user-name">Nome</h2>
+                <h2 className="user-name">Nome do cliente</h2>
 
                 <p className="user-description">
-                    Breve descrição do Usuario Breve descrição do Usuario
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </p>
 
                 <button className="edit profile" type="button">
@@ -59,11 +60,18 @@ export default function ProfileUser(props) {
         </header>
         
         <section>
-            <div id="post-options">
-                <p>Meus Cortes</p>
-                <p>Cabelereiro</p>
-            </div>
-
+            <ul className="profile-tabs">
+                <li>
+                    <button type="button" className="selected">
+                        Meus cortes
+                    </button>
+                </li>
+                <li>
+                    <button type="button" href="especialidade_cabelereiro.html">
+                        Cabeleireiro
+                    </button>
+                </li>
+            </ul>
             <div id="feed-container">
                 {props.products.map(renderProdcuct)}
             </div>

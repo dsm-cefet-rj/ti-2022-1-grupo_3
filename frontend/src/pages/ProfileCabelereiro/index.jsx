@@ -6,11 +6,12 @@ import Card from "../../components/Card"
 import Footer from "../../components/Footer"
 
 import "../../styles/ProfileCabelereiro.css"
+import hairstylistPicture from "../../images/placeholder_cabeleireiro.jpg";
 
 export default function ProfileCabelereiro(props) {
 
-    let [follower, setFollower] = useState(0);
-    let [follow, setFollow] = useState("Seguir");
+    const [follower, setFollower] = useState(0);
+    const [follow, setFollow] = useState("Seguir");
 
     function handleFollow(){
         if(follow === "Seguindo"){
@@ -37,7 +38,7 @@ export default function ProfileCabelereiro(props) {
                 <div className="user-profile">
                     <div className="user-pp-wrapper">
                         <img
-                            src="../images/placeholder_cabeleireiro.jpg"
+                            src={hairstylistPicture}
                             alt="Foto de perfil do cabelereiro"
                         />
                     </div>
@@ -71,12 +72,16 @@ export default function ProfileCabelereiro(props) {
             <section>
                 <div>
                     <ul className="profile-tabs">
-                        <a className="selected" href="#">
-                            <li>Meus cortes</li>
-                        </a>
-                        <a href="especialidade_cabelereiro.html">
-                            <li>Minhas especialidades</li>
-                        </a>
+                        <li>
+                            <button type="button" className="selected">
+                                Cortes anteriores
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" href="especialidade_cabelereiro.html">
+                                Especialidades
+                            </button>
+                        </li>
                     </ul>
                 </div>
 
