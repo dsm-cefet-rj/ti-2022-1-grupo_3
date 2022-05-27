@@ -10,20 +10,17 @@
 }
 
 #sign-in{
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 33%;
 }
 
-#sign-in a{
-    text-decoration: none;
+#sign-in p{
     color: #f2f2f2;
     padding: 0.5em 2em;
     border: 2px solid #f2f2f2;
     box-sizing: border-box;
-    
 }
 
 #social{

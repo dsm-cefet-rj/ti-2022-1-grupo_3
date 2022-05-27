@@ -13,11 +13,11 @@ export default function ProfileUser(props) {
 
     const renderProdcuct = (product) => {
         return (
-          <React.Fragment>
+          <>
             {product.status !== "Agendado" && (
               <Card product={product} key={product.name} />
             )}
-          </React.Fragment>
+          </>
         );
     };
 
@@ -41,7 +41,7 @@ export default function ProfileUser(props) {
                 </p>
 
                 <Link to={`./EditProfile`}>
-                        <button className="btn-salvar">Editar Perfil</button>
+                    <button className="btn-salvar">Editar Perfil</button>
                 </Link>
 
                 <div className="user-stats">

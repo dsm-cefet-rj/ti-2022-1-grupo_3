@@ -6,10 +6,8 @@ export default function Footer(props) {
     return (
         <>
             <footer id="footer-container">
-                <Link to="/register"> {/* Fazer página de login*/}
-                    <div id="sign-in">
-                        <a>Entrar</a>
-                    </div>
+                <Link to="/register" id="sign-in"> {/* Fazer página de login*/}
+                    <p>Entrar</p>
                 </Link>
 
                 <div id="social">

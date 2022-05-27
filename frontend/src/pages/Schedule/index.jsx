@@ -17,9 +17,7 @@ export default function Schedule(props) {
                 {
                     props.bookings.map((booking)=>{
                         return(
-                            <>
-                                <CardSchendule key={booking.id} booking ={booking}/>
-                            </>
+                            <CardSchendule key={booking.id} booking ={booking}/>
                         )
                     })
                 }

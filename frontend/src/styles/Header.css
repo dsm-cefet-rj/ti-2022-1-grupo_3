@@ -174,7 +174,7 @@ nav {
 
 .search-bar {
   display: grid;
-  grid-template-columns: 1fr 4rem;
+  grid-template-columns: 1fr auto;
   grid-template-rows: auto;
 }
 
@@ -195,6 +195,7 @@ nav {
 .search-bar button {
   display: flex;
   align-items: center;
+  padding: 0 0.8rem;
   justify-content: center;
   background-color: transparent;
 }

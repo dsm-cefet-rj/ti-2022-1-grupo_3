@@ -23,11 +23,11 @@ export default function ProfileCabelereiro(props) {
 
     const renderProdcuct = (product) => {
         return (
-          <React.Fragment>
+          <>
             {product.status !== "Agendado" && (
               <Card product={product} key={product.name} />
             )}
-          </React.Fragment>
+          </>
         );
     };
 
@@ -78,7 +78,7 @@ export default function ProfileCabelereiro(props) {
                             </button>
                         </li>
                         <li>
-                            <button type="button" href="especialidade_cabelereiro.html">
+                            <button type="button">
                                 Especialidades
                             </button>
                         </li>
