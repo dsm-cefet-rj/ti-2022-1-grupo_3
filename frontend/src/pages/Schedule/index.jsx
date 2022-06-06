@@ -1,23 +1,25 @@
 import React from "react"
+import { useSelector } from 'react-redux';
 
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 import CardSchendule from "../../components/CardSchedule";
 
-export default function Schedule(props) {
+export default function Schedule() {
+    const bookings = useSelector(state=>state.bookings)
     return(
         <>
         <Header/>
             <div className="main-container" id="form-container">
-                <legend>Sua Agenda!</legend>
+                <legend>Reserva!</legend>
                 <br></br>
             </div>
 
             <div id="feed-container">
                 {
-                    props.bookings.map((booking)=>{
+                    bookings.map((booking)=>{
                         return(
-                            <CardSchendule key={booking.id} booking ={booking}/>
+                            <CardSchendule key={booking.id} booking = {booking}/>
                         )
                     })
                 }

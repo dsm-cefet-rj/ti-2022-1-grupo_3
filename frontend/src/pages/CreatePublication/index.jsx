@@ -1,18 +1,35 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux'
+import { addProduct, updateProduct } from '../../ProductsSlice';
 
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
 import "../../styles/Schenduling.css";
 
-export default function CreatePublication(props) {
+export default function CreatePublication() {
 
-    const [newProduct, setNewProduct] = useState({
-        "id": props.products.length,
-    });
+    const products = useSelector(state => state.products)
 
-    let navigate = useNavigate();
+    let { id } = useParams();
+    id = parseInt(id);
+
+    const [newProduct, setNewProduct] = useState(
+        id ? products.filter((product) => product.id === id)[0] ?? {} : {}
+    );
+
+    const [actionType, ] = useState(
+        id ?
+            products.filter((product) => product.id === id)[0]
+            ? 'newPublication/updateProduct'
+            : 'newPublication/addProduct'
+            : 'newPublication/addProduct'
+    );
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
 
     function handleInputChange(e){
         setNewProduct({...newProduct, [e.target.name]: e.target.value})
@@ -20,8 +37,13 @@ export default function CreatePublication(props) {
 
     function createProduct(e){
         e.preventDefault();
-        props.setProducts(props.products.concat(newProduct));
-        alert("Publicação Criada com sucesso!");
+        if(actionType === 'newPublication/addProduct'){
+            dispatch(addProduct(newProduct));
+        } else {
+            dispatch(updateProduct(newProduct));
+        }
+        
+        alert("Produto Cadastrado com sucesso!");
         navigate("/");
     }
 

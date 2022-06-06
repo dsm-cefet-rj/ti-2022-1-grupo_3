@@ -1,28 +1,49 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux'
+import { addBooking, updateBooking } from '../../BookingsSlice';
 
 import Footer from "../../components/Footer"
 import Header from "../../components/Header"
 
 import "../../styles/Schenduling.css"
 
-export default function Schenduling(props) {
+export default function Schenduling() {
 
-    const [newBooking, setNewBooking] = useState({
-        "id": props.bookings.length,
-    });
+    const bookings = useSelector(state => state.bookings)
 
-    let navigate = useNavigate();
+    let {id} = useParams();
+    id = parseInt(id);
+    
+    const [newBooking, setNewBooking] = useState(
+        id ? bookings.filter((booking) => booking.id === id)[0] ?? {} : {}
+    );
+
+    const [actionType, ] = useState(
+        id ?
+            bookings.filter((booking) => booking.id === id)[0]
+            ? 'scheduling/updateBooking'
+            : 'scheduling/addBooking'
+            : 'scheduling/addBooking'
+    );
+    
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     function handleInputChange(e){
         setNewBooking({...newBooking, [e.target.name]: e.target.value})
     }
 
     function createBooking(e){
-        e.preventDefault();
-        props.setBookings(props.bookings.concat(newBooking));
-        alert("Publicação Criada com sucesso!");
-        navigate("/cabeleireiro/schedule");
+        e.preventDefault()
+        if(actionType === 'scheduling/addBooking'){
+            dispatch(addBooking(newBooking));
+        } else {
+            dispatch(updateBooking(newBooking));
+        }
+
+        alert("Reserva feita com sucesso!");
+        navigate("/schedule");
     }
 
     return (

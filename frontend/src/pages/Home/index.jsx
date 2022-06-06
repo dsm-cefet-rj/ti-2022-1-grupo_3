@@ -1,4 +1,5 @@
 import React from "react"
+import { useSelector } from "react-redux";
 
 import Card from "../../components/Card"
 import Header from "../../components/Header"
@@ -8,13 +9,14 @@ import "../../styles/Home.css"
 
 export default function Home(props) {
 
+    const products = useSelector(state => state.products)
     const renderProdcuct = (product) => {
         return (
-          <>
+          <React.Fragment>
             {product.status !== "Agendado" && (
               <Card product={product} key={product.name} />
             )}
-          </>
+          </React.Fragment>
         );
     };
 
@@ -23,7 +25,7 @@ export default function Home(props) {
         <Header/>
             <section>
                 <div id="feed-container">
-                    {props.products.map(renderProdcuct)}
+                    {products.map(renderProdcuct)}
                 </div>
             </section>
         <Footer/>

@@ -21,7 +21,7 @@ export default function Card(props) {
 
                     <p>R$ {props.product.price}</p>
 
-                    <Link to={`/me/scheduling/${props.product.id}`}>
+                    <Link to={`/scheduling/${props.product.id}`}>
                         <button className="btn-salvar">Agendar</button>
                     </Link>
                 </div>
