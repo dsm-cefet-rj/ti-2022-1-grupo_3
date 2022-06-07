@@ -1,42 +1,52 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, createEntityAdapter} from '@reduxjs/toolkit';
+import { baseUrl } from './baseUrl';
+import { httpDelete, httpGet, httpPost, httpPut } from './utils';
 
-const initialBookings = []
+const bookingsAdapter = createEntityAdapter()
 
-function addBookingReducer(bookings, booking) {
-    let proxId = 1 + booking.map(booking => booking.id).reduce((x, y) => Math.max(x, y));
-    return bookings.concat([{...booking, id: proxId}]);
-}
-
-function deleteBookingReducer(bookings, id) {
-    return bookings.filter((booking) => booking.id !== id);
-}
-
-function updateBookingReducer(bookings, booking) {
-    let index = booking.map(booking => booking.id).indexOF(booking.id);
-    bookings.splice(index, 1, booking);
-    return bookings;
-}
+const initialBookings = bookingsAdapter.getInitialState({
+    status: 'not_loaded',
+    error: null,
+})
 
 export const fetchBookings = createAsyncThunk('database/fetchBookings', async() =>{
-    return await (await fetch('http://localhost:3004/bookings')).json();
+    return await httpGet(`${baseUrl}/bookings`)
 });
 
-function fullfillBookingsReducer(productsState, bookingsFetched){
-    return bookingsFetched;
-}
+export const  addBookingServer = createAsyncThunk('database/addBookingServer', async (booking)=>{
+    return await httpPost(`${baseUrl}/bookings`,booking)
+});
+
+export const deleteBookingServer = createAsyncThunk('database/deleteBooking',async (id)=>{
+    await httpDelete(`${baseUrl}/bookings/${id}`)
+    return id;
+});
+
+export const updateBookingServer = createAsyncThunk('database/updateBookingServer',async (booking)=>{
+    return await httpPut(`${baseUrl}/bookings/${booking.id}`,booking)
+});
 
 export const bookingsSlice = createSlice({
     name: "bookings",
     initialState: initialBookings,
-    reducers:{
-        addBooking: (state, action) => addBookingReducer(state, action.payload),
-        updateBooking: (state, action) => updateBookingReducer(state, action.payload),
-        deleteBooking: (state, action) => deleteBookingReducer(state, action.payload)
-    },
     extraReducers: {
-        [fetchBookings.fulfilled]: (state, action) => fullfillBookingsReducer(state, action.payload),
+        [fetchBookings.fulfilled]: (state,{ payload}) =>{ bookingsAdapter.setAll(state,payload);state.status ='loaded'},
+        [fetchBookings.pending]: (state)=>{state.status = 'loading'},
+        [fetchBookings.rejected]: (state,{error})=>{state.status='failed'; state.error = error.message},
+        [addBookingServer.fulfilled]:(state,{payload:booking})=>{state.status="saved"; bookingsAdapter.addOne(state,booking)},
+        [deleteBookingServer.fulfilled]:(state,{payload: id})=>{state.status='deleted';bookingsAdapter.removeOne(state,id)},
+        [updateBookingServer.fulfilled]: (state,{payload})=>{state.status='updated';bookingsAdapter.upsertOne(state,payload)},
+        [deleteBookingServer.pending]:(state)=>{state.status = 'loading'},
+        [addBookingServer.pending]:(state)=>{state.status = 'loading'},
+        [updateBookingServer.pending]: (state)=>{state.status = 'loading2'}
     }
 })
 
-export const { addBooking, updateBooking, deleteBooking } = bookingsSlice.actions
 export default bookingsSlice.reducer
+
+export const {
+    selectAll : selectALLBookings,
+    selectById: selectBookingById,
+    selectEntities: selectBookingEntities,
+    selectTotal: selectBookingsTotal,
+} = bookingsAdapter.getSelectors(state=>state.bookings)

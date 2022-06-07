@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
-import { addProduct, updateProduct } from '../../ProductsSlice';
+import { addProductsServer, updateProductsServer, selectProductsById } from '../../ProductsSlice';
 
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -12,18 +12,18 @@ import "../../styles/Schenduling.css";
 
 export default function CreatePublication() {
 
-    const products = useSelector(state => state.products)
-
     let { id } = useParams();
     id = parseInt(id);
 
+    const productFound = useSelector(state => selectProductsById(state, id))
+
     const [newProduct, setNewProduct] = useState(
-        id ? products.filter((product) => product.id === id)[0] ?? {} : {}
+        id ? productFound ?? {} : {}
     );
 
     const [actionType, ] = useState(
         id ?
-            products.filter((product) => product.id === id)[0]
+            productFound
             ? 'newPublication/updateProduct'
             : 'newPublication/addProduct'
             : 'newPublication/addProduct'
@@ -39,15 +39,22 @@ export default function CreatePublication() {
 
     function createProduct(e){
         e.preventDefault();
+        
         if(actionType === 'newPublication/addProduct'){
             newProduct.images = [defaultProfile];
-            dispatch(addProduct(newProduct));
+            dispatch(addProductsServer(newProduct));
+            alert("Produto Cadastrado com sucesso!");
         } else {
-            dispatch(updateProduct(newProduct));
+            dispatch(updateProductsServer(newProduct));
+            alert("Produto Atualizado com sucesso!");
         }
         
-        alert("Produto Cadastrado com sucesso!");
         navigate("/");
+    }
+
+    function cancelButton(e){
+        e.preventDefault();
+        navigate("/")
     }
 
     return (
@@ -66,7 +73,10 @@ export default function CreatePublication() {
                     <label for="images" className="form-content">Image:</label>
                     <input type="file" name="images" className="form-content" value={newProduct.images} onChange={handleInputChange} required/>
 
-                    <button type="submit" id="submit" onClick={(e)=>createProduct(e)}>Publicar</button>
+                    <div className="button-container">
+                        <button type="submit" id="submit" onClick={(e)=>cancelButton(e)}>Cancelar</button>
+                        <button type="submit" id="submit" onClick={(e)=>createProduct(e)}>Publicar</button>
+                    </div>
                 </form>
             </div>
         <Footer/>

@@ -1,12 +1,47 @@
-import React from "react"
-import { useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBookings, selectALLBookings } from "../../BookingsSlice";
 
+import CardSchendule from "../../components/CardSchedule";
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
-import CardSchendule from "../../components/CardSchedule";
 
 export default function Schedule() {
-    const bookings = useSelector(state=>state.bookings)
+
+    const bookings = useSelector(selectALLBookings);
+    const status = useSelector(state=>state.bookings.status);
+    const error = useSelector(state=>state.bookings.error);
+    const dispatch = useDispatch();
+    
+    let bookingList = '';
+
+    const renderBooking = (booking) => {
+        return (
+            <React.Fragment>
+                {booking.status !== "Agendado" && (
+                    <CardSchendule booking={booking} key={booking.id} />
+                )}
+            </React.Fragment>
+        );
+    };
+
+    useEffect(() => {
+        if(status === 'not loaded'){
+            dispatch(fetchBookings())
+        }else if(status === 'not loaded'){
+            setTimeout(() => dispatch(fetchBookings()), 5000)
+        }
+    }, [status, dispatch])
+  
+
+    if(status === 'loaded' || status === 'saved' || status === 'deleted'){
+        bookingList = bookings.map(renderBooking);
+    }else if (status === 'loading'){
+        bookingList = <div>Carregando Agendamento</div>;
+    }else if (status === 'failed'){
+        bookingList = <div>Error: {error}</div>;
+    }
+
     return(
         <>
         <Header/>
@@ -16,13 +51,7 @@ export default function Schedule() {
             </div>
 
             <div id="feed-container">
-                {
-                    bookings.map((booking)=>{
-                        return(
-                            <CardSchendule key={booking.id} booking = {booking}/>
-                        )
-                    })
-                }
+                {bookingList}
             </div>
 
         <Footer/>

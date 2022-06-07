@@ -66,3 +66,10 @@ select.form-content:hover{
     box-shadow: 4px 4px rgba(0, 0, 0, 0.4);
     cursor: pointer;
 }
+
+.button-container{
+    width: 80%;
+    margin: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+}

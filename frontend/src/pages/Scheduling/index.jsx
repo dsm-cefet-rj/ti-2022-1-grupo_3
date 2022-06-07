@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
-import { addBooking, updateBooking } from '../../BookingsSlice';
+import { addBookingServer, updateBookingServer, selectBookingById } from '../../BookingsSlice';
 
 import Footer from "../../components/Footer"
 import Header from "../../components/Header"
@@ -10,18 +10,18 @@ import "../../styles/Schenduling.css"
 
 export default function Schenduling() {
 
-    const bookings = useSelector(state => state.bookings)
-
     let { id } = useParams();
     id = parseInt(id);
+
+    const bookingFound = useSelector(state => selectBookingById(state, id))
     
     const [newBooking, setNewBooking] = useState(
-        id ? bookings.filter((booking) => booking.id === id)[0] ?? {} : {}
+        id ? bookingFound ?? {} : {}
     );
 
     const [actionType, ] = useState(
         id ?
-            bookings.filter((booking) => booking.id === id)[0]
+            bookingFound
             ? 'scheduling/updateBooking'
             : 'scheduling/addBooking'
             : 'scheduling/addBooking'
@@ -37,12 +37,13 @@ export default function Schenduling() {
     function createBooking(e){
         e.preventDefault();
         if(actionType === 'scheduling/addBooking'){
-            dispatch(addBooking(newBooking));
+            dispatch(addBookingServer(newBooking));
+            alert("Reserva criada com sucesso!");
         } else {
-            dispatch(updateBooking(newBooking));
+            dispatch(updateBookingServer(newBooking));
+            alert("Reserva atualizada com sucesso!")
         }
 
-        alert("Reserva feita com sucesso!");
         navigate("/schedule");
     }
 

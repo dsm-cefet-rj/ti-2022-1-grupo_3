@@ -1,44 +1,51 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { httpGet, httpPost, httpDelete, httpPut } from './utils';
+import { baseUrl } from './baseUrl';
 
-const initialProducts = []
+const productsAdapter = createEntityAdapter();
 
-function addProductReducer(products, product){
-    let proxId = 1 + products.map(product => product.id).reduce((x, y) => Math.max(x,y));
-    return products.concat([{...product, id: proxId}]);
-}
+const initialState = productsAdapter.getInitialState({
+    status: "not_loaded",
+    error: null
+});
 
-function deleteProductReducer(products, id){
-    return products.filter((product) => product.id !== id);  
-}
+export const fetchProducts = createAsyncThunk('database/fetchProducts', async() => {
+    return await httpGet(`${baseUrl}/products`);
+});
 
-function updateProductReducer(products, product){
-    let index = products.map(product => product.id).indexOf(product.id);
-    products.splice(index, 1, product);
-    return products;
-}
+export const deleteProductsServer = createAsyncThunk('database/deleteProductsServer', async(idProduct) => {
+    await httpDelete(`${baseUrl}/products/${idProduct}`);
+    return idProduct;
+});
 
-export const fetchProducts = createAsyncThunk('database/fetchProducts',
-    async () => {
-        return await (await fetch ('http://localhost:3004/products')).json();
-    }
-);
+export const addProductsServer = createAsyncThunk('database/addProductsServer', async(product) => {
+    return await httpPost(`${baseUrl}/product`, product);
+});
 
-function fullfillProductsReducer(productsState, productsFetched){
-    return productsFetched;
-}
+export const updateProductsServer = createAsyncThunk('database/updateProductsServer', async(product) => {
+    return await httpPut(`${baseUrl}/products/${product.id}`, product);
+})
 
 export const productsSlice = createSlice({
     name: "products",
-    initialState: initialProducts,
-    reducers: {
-        addProduct: (state, action) => addProductReducer(state, action.payload),
-        updateProduct: (state, action) => updateProductReducer(state, action.payload),
-        deleteProduct: (state, action) => deleteProductReducer(state, action.payload)
-    },
+    initialState: initialState,
     extraReducers: {
-        [fetchProducts.fulfilled]: (state, action) => fullfillProductsReducer(state, action.payload),
+        [fetchProducts.pending]: (state, action) => {state.status = "loading"},
+        [fetchProducts.fulfilled]: (state, action) => {state.status = "loaded"; productsAdapter.setAll(state, action.payload);},
+        [fetchProducts.rejected]: (state, action) => {state.status = "failed"; state.error = action.error.message},
+        [deleteProductsServer.pending]: (state, action) => {state.status = "loading"},
+        [addProductsServer.pending]: (state, action) => {state.status = "loading"},
+        [updateProductsServer.pending]: (state, action) => {state.status = "loading"},
+        [deleteProductsServer.fulfilled]: (state,{payload:id}) => {state.status = "deleted"; productsAdapter.removeOne(state, id);},
+        [addProductsServer.fulfilled]: (state, action) => {state.status = "saved"; productsAdapter.addOne(state, action.payload);},
+        [updateProductsServer.fulfilled]: (state, action) => {state.status = "saved"; productsAdapter.upsertOne(state, action.payload);},
     }
 })
 
-export const { addProduct, updateProduct, deleteProduct } = productsSlice.actions
 export default productsSlice.reducer
+
+export const {
+    selectAll: selectAllProducts,
+    selectById: selectProductsById,
+    selectIds: selectProductsIds
+} = productsAdapter.getSelectors(state => state.products)
