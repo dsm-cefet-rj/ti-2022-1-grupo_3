@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { addBooking, updateBooking } from '../../BookingsSlice';
 
@@ -12,7 +12,7 @@ export default function Schenduling() {
 
     const bookings = useSelector(state => state.bookings)
 
-    let {id} = useParams();
+    let { id } = useParams();
     id = parseInt(id);
     
     const [newBooking, setNewBooking] = useState(
@@ -35,8 +35,8 @@ export default function Schenduling() {
     }
 
     function createBooking(e){
-        e.preventDefault()
-        if(actionType === 'scheduling/addBooking'){
+        e.preventDefault();
+        if(actionType === '/scheduling/addBooking'){
             dispatch(addBooking(newBooking));
         } else {
             dispatch(updateBooking(newBooking));
