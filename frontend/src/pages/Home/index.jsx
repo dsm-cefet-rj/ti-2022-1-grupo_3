@@ -10,7 +10,7 @@ import "../../styles/Home.css"
 export default function Home(props) {
 
     const products = useSelector(state => state.products)
-    const renderProdcuct = (product) => {
+    const renderProduct = (product) => {
         return (
           <React.Fragment>
             {product.status !== "Agendado" && (
@@ -25,7 +25,7 @@ export default function Home(props) {
         <Header/>
             <section>
                 <div id="feed-container">
-                    {products.map(renderProdcuct)}
+                    {products.map(renderProduct)}
                 </div>
             </section>
         <Footer/>

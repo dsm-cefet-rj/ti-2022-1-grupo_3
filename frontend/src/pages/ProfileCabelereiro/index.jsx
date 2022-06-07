@@ -1,5 +1,6 @@
 import React from "react"
 import { useState } from "react"
+import { useSelector } from "react-redux";
 
 import Header from "../../components/Header"
 import Card from "../../components/Card"
@@ -21,13 +22,14 @@ export default function ProfileCabelereiro(props) {
         }
     }
 
-    const renderProdcuct = (product) => {
+    const products = useSelector(state => state.products)
+    const renderProduct = (product) => {
         return (
-          <>
+          <React.Fragment>
             {product.status !== "Agendado" && (
               <Card product={product} key={product.name} />
             )}
-          </>
+          </React.Fragment>
         );
     };
 
@@ -86,7 +88,7 @@ export default function ProfileCabelereiro(props) {
                 </div>
 
                 <div id="feed-container">
-                    {props.products.map(renderProdcuct)}
+                    {products.map(renderProduct)}
                 </div>
 
             </section>

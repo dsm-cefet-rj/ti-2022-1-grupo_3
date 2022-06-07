@@ -36,7 +36,7 @@ export default function Schenduling() {
 
     function createBooking(e){
         e.preventDefault();
-        if(actionType === '/scheduling/addBooking'){
+        if(actionType === 'scheduling/addBooking'){
             dispatch(addBooking(newBooking));
         } else {
             dispatch(updateBooking(newBooking));

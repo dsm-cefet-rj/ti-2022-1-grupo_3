@@ -6,6 +6,8 @@ import { addProduct, updateProduct } from '../../ProductsSlice';
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
+import defaultProfile from "../../images/defaultProfile.jpeg";
+
 import "../../styles/Schenduling.css";
 
 export default function CreatePublication() {
@@ -38,6 +40,7 @@ export default function CreatePublication() {
     function createProduct(e){
         e.preventDefault();
         if(actionType === 'newPublication/addProduct'){
+            newProduct.images = [defaultProfile];
             dispatch(addProduct(newProduct));
         } else {
             dispatch(updateProduct(newProduct));

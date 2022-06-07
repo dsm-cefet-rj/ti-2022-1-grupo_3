@@ -25,7 +25,7 @@ function fullfillBookingsReducer(productsState, bookingsFetched){
     return bookingsFetched;
 }
 
-export const bookingSlice = createSlice({
+export const bookingsSlice = createSlice({
     name: "bookings",
     initialState: initialBookings,
     reducers:{
@@ -38,5 +38,5 @@ export const bookingSlice = createSlice({
     }
 })
 
-export const { addBooking, updateBooking, deleteBooking } = bookingSlice.actions
-export default bookingSlice.reducer
+export const { addBooking, updateBooking, deleteBooking } = bookingsSlice.actions
+export default bookingsSlice.reducer
