@@ -1,47 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import exemplo1 from "./images/exemplo1.jpeg"
-import exemplo2 from "./images/exemplo2.jpeg"
-import exemplo3 from "./images/exemplo3.jpeg"
-import exemplo4 from "./images/exemplo4.jpeg"
-
-const initialProducts = [
-    {
-        id: 1,
-        images: [exemplo1],
-        name: "Cabelo Loiro",
-        price: 30.00,
-        seller: "Cabeleireiro A",
-      },
-      {
-        id: 2,
-        images: [exemplo2],
-        name: "Cabelo Curto",
-        price: 45.00,
-        seller: "Cabeleireiro B",
-      },
-      {
-        id: 3,
-        images: [exemplo3],
-        name: "Cabelo Cacheado",
-        price: 37.50,
-        seller: "Cabeleireiro C",
-      },
-      {
-        id: 4,
-        images: [exemplo4],
-        name: "Cabelo Curto Liso",
-        price: 100.00,
-        seller: "Cabeleireiro D",
-      },
-      {
-        id: 5,
-        images: [exemplo1],
-        name: "Cabelo Comprido",
-        price: 80.00,
-        seller: "Cabeleireiro E",
-      },
-];
+const initialProducts = []
 
 function addProductReducer(products, product){
     let proxId = 1 + products.map(product => product.id).reduce((x, y) => Math.max(x,y));
@@ -58,13 +17,26 @@ function updateProductReducer(products, product){
     return products;
 }
 
+export const fetchProducts = createAsyncThunk('database/fetchProducts',
+    async () => {
+        return await (await fetch ('http://localhost:3004/products')).json();
+    }
+);
+
+function fullfillProductsReducer(productsState, productsFetched){
+    return productsFetched;
+}
+
 export const productsSlice = createSlice({
-    name: 'products',
+    name: "products",
     initialState: initialProducts,
     reducers: {
         addProduct: (state, action) => addProductReducer(state, action.payload),
         updateProduct: (state, action) => updateProductReducer(state, action.payload),
         deleteProduct: (state, action) => deleteProductReducer(state, action.payload)
+    },
+    extraReducers: {
+        [fetchProducts.fulfilled]: (state, action) => fullfillProductsReducer(state, action.payload),
     }
 })
 
