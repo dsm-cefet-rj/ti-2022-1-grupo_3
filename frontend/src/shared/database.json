@@ -55,10 +55,10 @@
       "name": "Cabelo A",
       "price": 30,
       "seller": "Cabeleireiro A",
-      "date": "25/05/2022",
-      "time": "21:28",
+      "date": "2022-06-15",
+      "time": "22:29",
       "pay": "Dinheiro",
-      "location": "Casa"
+      "location": "Salão"
     },
     {
       "id": 2,
@@ -100,10 +100,10 @@
       "location": "Casa"
     },
     {
-      "date": "2022-06-09",
-      "time": "17:00",
-      "pay": "Débito",
-      "location": "Salão",
+      "date": "2022-06-30",
+      "time": "19:00",
+      "pay": "Crédito",
+      "location": "Casa",
       "id": 5
     }
   ]

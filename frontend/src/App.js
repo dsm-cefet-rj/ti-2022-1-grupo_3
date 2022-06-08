@@ -16,15 +16,15 @@ function App() {
     <>
         <Router>
           <Routes>
-            <Route path="/" exact element={<Home />}/>
-            <Route path="/register" element={<Register />}/>
-            <Route path="/me" element={<ProfileUser />}/>
+            <Route path="/" exact element={<Home/>}/>
+            <Route path="/register" element={<Register/>}/>
+            <Route path="/me" element={<ProfileUser/>}/>
             <Route path="/me/editProfile" element={<EditProfile/>}/>
-            <Route path="/newPublication" element={<CreatePublication />}/>
-            <Route path="/scheduling/:id" element={<Scheduling />}/>
-            <Route path="/cabeleireiro" element={<ProfileCabelereiro />}/>
+            <Route path="/newPublication" element={<CreatePublication/>}/>
+            <Route path="/scheduling/:id" element={<Scheduling/>}/>
+            <Route path="/cabeleireiro" element={<ProfileCabelereiro/>}/>
             <Route path="/cabeleireiro/especialidade" element={<EspecialidadeCabelereiro/>}/>
-            <Route path="/schedule" element={<Schedule />}/>
+            <Route path="/schedule" element={<Schedule/>}/>
           </Routes>
         </Router>
     </>

@@ -46,7 +46,7 @@ export default function Schedule() {
         <>
         <Header/>
             <div className="main-container" id="form-container">
-                <legend>Reserva!</legend>
+                <legend>Reservas</legend>
                 <br></br>
             </div>
 
