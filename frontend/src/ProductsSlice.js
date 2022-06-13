@@ -19,7 +19,7 @@ export const deleteProductsServer = createAsyncThunk('database/deleteProductsSer
 });
 
 export const addProductsServer = createAsyncThunk('database/addProductsServer', async(product) => {
-    return await httpPost(`${baseUrl}/product`, product);
+    return await httpPost(`${baseUrl}/products`, product);
 });
 
 export const updateProductsServer = createAsyncThunk('database/updateProductsServer', async(product) => {
