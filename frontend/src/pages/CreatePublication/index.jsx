@@ -24,9 +24,9 @@ export default function CreatePublication() {
     const [actionType, ] = useState(
         id ?
             productFound
-            ? 'newPublication/updateProduct'
-            : 'newPublication/addProduct'
-            : 'newPublication/addProduct'
+            ? 'formPublication/updateProduct'
+            : 'formPublication/addProduct'
+            : 'formPublication/addProduct'
     );
 
     const dispatch = useDispatch();
@@ -40,7 +40,7 @@ export default function CreatePublication() {
     function createProduct(e){
         e.preventDefault();
         
-        if(actionType === 'newPublication/addProduct'){
+        if(actionType === 'formPublication/addProduct'){
             newProduct.images = [defaultProfile];
             dispatch(addProductsServer(newProduct));
             alert("Produto Cadastrado com sucesso!");

@@ -8,7 +8,7 @@ export default function Card(props) {
         <>
             <article className="cards">
                 
-                <Link to="/"> {/* Colocar rota para uma página melhor! */}
+                <Link to={`/publication/${props.product.id}`}>
                     <img src={props.product.images} alt="Imagem da Publicação" id={props.product.id}/>
                 </Link>
 

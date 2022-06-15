@@ -44,6 +44,14 @@
       "name": "Cabelo Comprido",
       "price": 80,
       "seller": "Cabeleireiro E"
+    },
+    {
+      "name": "Bruno Oliveira Barbosa",
+      "price": "100",
+      "images": [
+        "/static/media/defaultProfile.ac71f00bba068424d4db.jpeg"
+      ],
+      "id": 6
     }
   ],
   "bookings": [
@@ -105,6 +113,13 @@
       "pay": "Crédito",
       "location": "Casa",
       "id": 5
+    },
+    {
+      "date": "2022-06-15",
+      "time": "03:50",
+      "pay": "Dinheiro",
+      "location": "Salão",
+      "id": 6
     }
   ]
 }

@@ -1,0 +1,38 @@
+.main-cardschendule {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 200%;
+}
+
+.container-cardschendule{
+    box-shadow: 0 0 3em rgba(0,0,0,0.4);
+    display: inline-block;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    width: 60vh;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    display: block;
+    margin: 3% 3%;
+}
+
+.left-cardschendule{
+    width: 50%;
+    float:left;
+}
+
+.image-cardschendule {
+    width: 50%;
+    height: 50%;
+} 
+
+.right-cardschendule{
+    display: flex;
+    text-align: center;
+    width:50%;
+    float:left;
+}
