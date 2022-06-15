@@ -42,16 +42,8 @@
         "https://images.unsplash.com/photo-1570779380181-43ab3111bbb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
       ],
       "name": "Cabelo Comprido",
-      "price": 80,
+      "price": "100",
       "seller": "Cabeleireiro E"
-    },
-    {
-      "name": "Bruno",
-      "price": "123",
-      "images": [
-        "/static/media/defaultProfile.ac71f00bba068424d4db.jpeg"
-      ],
-      "id": 6
     }
   ],
   "bookings": [
@@ -109,7 +101,7 @@
     },
     {
       "date": "2022-06-22",
-      "time": "14:00",
+      "time": "16:00",
       "pay": "Dinheiro",
       "location": "Casa",
       "id": 5

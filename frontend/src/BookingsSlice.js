@@ -38,7 +38,7 @@ export const bookingsSlice = createSlice({
         [updateBookingServer.fulfilled]: (state,{payload})=>{state.status='updated';bookingsAdapter.upsertOne(state,payload)},
         [deleteBookingServer.pending]:(state)=>{state.status = 'loading'},
         [addBookingServer.pending]:(state)=>{state.status = 'loading'},
-        [updateBookingServer.pending]: (state)=>{state.status = 'loading2'}
+        [updateBookingServer.pending]: (state)=>{state.status = 'loading'}
     }
 })
 
