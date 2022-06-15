@@ -13,8 +13,6 @@ export default function Schedule() {
     const error = useSelector(state=>state.bookings.error);
     const dispatch = useDispatch();
     
-    let bookingList = '';
-
     const renderBooking = (booking) => {
         return (
             <React.Fragment>
@@ -32,7 +30,8 @@ export default function Schedule() {
             setTimeout(() => dispatch(fetchBookings()), 5000)
         }
     }, [status, dispatch])
-  
+    
+    let bookingList = '';
 
     if(status === 'loaded' || status === 'saved' || status === 'deleted'){
         bookingList = bookings.map(renderBooking);

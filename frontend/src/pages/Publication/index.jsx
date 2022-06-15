@@ -32,7 +32,7 @@ export default function Publication() {
         setNewProduct({...newProduct, [e.target.name]: e.target.value})
     }
     
-    function editarProduct(e){
+    function editProduct(e){
         e.preventDefault();
         
         if(actionType === 'formPublication/updateProduct'){
@@ -85,7 +85,7 @@ export default function Publication() {
                 <p> <span><b>Cabeleireiro: </b> {product.seller} </span></p>
                 
                 <button type="submit" id="submit" onClick={(e)=>cancelButton(e)} >Cancelar</button>
-                <button type="submit" id="submit" onClick={(e)=>editarProduct(e)}>Editar</button>
+                <button type="submit" id="submit" onClick={(e)=>editProduct(e)}>Editar</button>
                 <button type="submit" id="submit" onClick={handleDelete}>Excluir Publicação</button>
             </div>
         <Footer/>

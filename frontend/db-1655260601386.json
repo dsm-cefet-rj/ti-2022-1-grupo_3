@@ -98,13 +98,6 @@
       "time": "21:28",
       "pay": "Dinheiro",
       "location": "Casa"
-    },
-    {
-      "date": "2022-06-30",
-      "time": "19:00",
-      "pay": "Crédito",
-      "location": "Casa",
-      "id": 5
     }
   ]
 }

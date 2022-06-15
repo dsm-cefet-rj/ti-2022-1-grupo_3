@@ -6,10 +6,8 @@ import "../../styles/CardSchendule.css"
 export default function CardSchendule(props) {
     return(
         <>
-         <Link to={`/agendado/${props.booking.id}`}>
             <div className="main-cardschendule">
                 <div className="container-cardschendule">
-
                     <div className="left-cardschendule">
                         <p> <span><b>Cabeleireiro: </b>{props.booking.name}</span> </p>
                         <p> <span><b>R$ </b>{props.booking.price}</span></p>
@@ -21,11 +19,11 @@ export default function CardSchendule(props) {
 
                     <div className="right-cardschendule">
                         <img className="image-cardschendule" src={props.booking.images} width="40" height="40"  alt=""/>
+                        <Link to={`/editSchedule/${props.booking.id}`}><p>Editar</p></Link> 
                     </div>
 
                 </div>
             </div>
-        </Link>
         </>
     );
 }

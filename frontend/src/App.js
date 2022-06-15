@@ -8,8 +8,7 @@ import ProfileUser from "./pages/ProfileUser";
 import Register from "./pages/Register";
 import Schedule from "./pages/Schedule";
 import Scheduling from "./pages/Scheduling";
-
-import Agendado from "./pages/Agendado";
+import EditSchedule from "./pages/EditSchedule";
 import Publication from './pages/Publication';
 
 function App() {
@@ -28,7 +27,7 @@ function App() {
             
             <Route path="/scheduling/:id" element={<Scheduling/>}/>
             <Route path="/schedule" element={<Schedule/>}/>
-            <Route path="/agendado/:id" element={Agendado}/>
+            <Route path="/editSchedule/:id" element={<EditSchedule/>}/>
 
           </Routes>
         </Router>
