@@ -22,8 +22,8 @@ function App() {
             <Route path="/me" element={<ProfileUser/>}/>
             <Route path="/cabeleireiro" element={<ProfileCabelereiro/>}/>
 
-            <Route exact path="/formPublication/new" element={<CreatePublication title={"Cadastra Produto"}/>}/>
-            <Route path="/formPublication/:id" element={<CreatePublication title={"Editar Produto"}/>}/>
+            <Route path="/formPublication/new" element={<CreatePublication/>}/>
+            <Route path="/formPublication/:id" element={<CreatePublication/>}/>
             <Route exact path="/publication/:id" element={<Publication/>}/>
             
             <Route path="/scheduling/:id" element={<Scheduling/>}/>

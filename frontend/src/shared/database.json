@@ -5,7 +5,7 @@
       "images": [
         "https://images.unsplash.com/photo-1560869713-bf165a9cfac1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=326&q=80"
       ],
-      "name": "Cabelo A",
+      "name": "Cabelo Teste",
       "price": 30,
       "seller": "Cabeleireiro A"
     },
@@ -44,14 +44,6 @@
       "name": "Cabelo Comprido",
       "price": 80,
       "seller": "Cabeleireiro E"
-    },
-    {
-      "name": "Bruno Oliveira Barbosa",
-      "price": "100",
-      "images": [
-        "/static/media/defaultProfile.ac71f00bba068424d4db.jpeg"
-      ],
-      "id": 6
     }
   ],
   "bookings": [

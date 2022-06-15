@@ -17,12 +17,10 @@ export default function CreatePublication() {
 
     const productFound = useSelector(state => selectProductsById(state, id))
 
-    const [newProduct, setNewProduct] = useState(
-        id ? productFound ?? {} : {}
-    );
+    const [newProduct, setNewProduct] = useState(id ? productFound ?? {} : {});
 
-    const [actionType, ] = useState(
-        id ?
+    const [actionType] = useState(
+        id ? 
             productFound
             ? 'formPublication/updateProduct'
             : 'formPublication/addProduct'
