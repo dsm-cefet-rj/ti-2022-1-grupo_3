@@ -11,7 +11,7 @@ export default function CardSchendule(props) {
                     <div className="left-cardschendule">
                         <p> <span><b>Cabeleireiro: </b>{props.booking.name}</span> </p>
                         <p> <span><b>R$ </b>{props.booking.price}</span></p>
-                        <p> <span><b>Cabeleireiro: </b> {props.booking.seller} </span></p>
+                        <p> <span><b>Forma Pagamento: </b> {props.booking.pay} </span></p>
                         <p> <span><b>Local: </b> {props.booking.location}</span> </p>
                         <p> <span><b>Data: </b> {props.booking.date}</span></p>
                         <p> <scan><b>Hora: </b> {props.booking.time}</scan></p>
