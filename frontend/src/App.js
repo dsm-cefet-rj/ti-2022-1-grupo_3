@@ -9,7 +9,7 @@ import Register from "./pages/Register";
 import Schedule from "./pages/Schedule";
 import Scheduling from "./pages/Scheduling";
 import EditSchedule from "./pages/EditSchedule";
-import Publication from './pages/Publication';
+import EditPublication from './pages/EditPublication';
 
 function App() {
   return (
@@ -21,9 +21,8 @@ function App() {
             <Route path="/me" element={<ProfileUser/>}/>
             <Route path="/cabeleireiro" element={<ProfileCabelereiro/>}/>
 
-            <Route path="/formPublication/new" element={<CreatePublication/>}/>
-            <Route path="/formPublication/:id" element={<CreatePublication/>}/>
-            <Route exact path="/publication/:id" element={<Publication/>}/>
+            <Route path="/newPublication" element={<CreatePublication/>}/>
+            <Route exact path="/EditPublication/:id" element={<EditPublication/>}/>
             
             <Route path="/scheduling/:id" element={<Scheduling/>}/>
             <Route path="/schedule" element={<Schedule/>}/>

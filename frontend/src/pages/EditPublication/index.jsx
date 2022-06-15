@@ -6,7 +6,7 @@ import { deleteProductsServer, updateProductsServer, selectProductsById } from '
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 
-import "../../styles/Publication.css"
+import "../../styles/EditSchedule.css"
 
 export default function Publication() {
 
@@ -42,9 +42,7 @@ export default function Publication() {
         
         navigate("/");
     }
-    
-    // *----------------------------------------------------------------------*
-
+   
     const product = useSelector(state => selectProductsById(state, id));
     const status = useSelector(state=>state.products.status);
     const error = useSelector(state=>state.products.error);
@@ -70,24 +68,47 @@ export default function Publication() {
     return(
         <>
         <Header/>
+
+            <div className="main-container" id="form-container">
+                <legend>Editar Publicação</legend>
+                <br></br>
+            </div>
+
+            <div className="container-editschedule">
+
+                <div className="column-right">
+                    <img id="image-publi" src={product.images} alt="Imagem da publicação"/>
+                </div>
+
+                <div className="column-left">
+
+                <table className="table-editschedule">
+                        <tr>
+                            <td><p><b>Título: </b></p></td>
+                            <td><p><span>{product.name}</span></p></td>
+                            <td><input type="text" name="name" value={newProduct.name} onChange={handleInputChange} required/></td>
+                        </tr>
+
+                        <tr>
+                            <td><p><b>R$ </b></p></td>
+                            <td><p><span>{product.price}</span></p></td>
+                            <input type="number" name="price" value={newProduct.price} onChange={handleInputChange} required/>
+                        </tr>
+
+                        <tr>
+                            <td><p><b>Cabeleireiro: </b></p></td>
+                            <td><p><span>{product.seller}</span></p></td>
+                        </tr>
+                    </table>
+                    
+                    <div className="buttom-cardschedule">
+                        <button type="submit" id="submit" onClick={(e)=>cancelButton(e)} >Cancelar</button>
+                        <button type="submit" id="submit" onClick={(e)=>editProduct(e)}>Editar</button>
+                        <button type="submit" id="submit" onClick={handleDelete}>Excluir Publicação</button>
+                    </div>
+                </div>
+            </div>
         
-            <div className="column-left">
-                <img id="image-publi" src={product.images} width="40%" height="40%"  alt=""/>
-            </div>
-
-            <div className="column-right">
-                <p> <span><b>Cabeleireiro: </b>{product.name}</span> </p>
-                <input type="text" name="name" value={newProduct.name} onChange={handleInputChange} required/>
-
-                <p> <span><b>R$ </b>{product.price}</span></p>
-                <input type="number" name="price" value={newProduct.price} onChange={handleInputChange} required/>
-
-                <p> <span><b>Cabeleireiro: </b> {product.seller} </span></p>
-                
-                <button type="submit" id="submit" onClick={(e)=>cancelButton(e)} >Cancelar</button>
-                <button type="submit" id="submit" onClick={(e)=>editProduct(e)}>Editar</button>
-                <button type="submit" id="submit" onClick={handleDelete}>Excluir Publicação</button>
-            </div>
         <Footer/>
         </>
     )

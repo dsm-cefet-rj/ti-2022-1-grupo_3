@@ -1,0 +1,41 @@
+.container-editschedule{
+    display: flex;
+    justify-content: center;
+}
+
+.column-left {
+    width: 50%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#image-publi{
+    display: flex;
+    margin-left: 25%;
+    border-radius: 25px;
+    width: 300px;
+    margin-bottom: 2.1rem;
+}
+
+.column-right {
+    width:50%;
+    float:right;
+}
+
+.table-editschedule {
+    width: 80%;
+    text-align: left;
+}
+
+td{
+    border-bottom: 1px solid #ddd
+}
+
+.buttom-cardschedule{
+    width: 80%;
+    margin: 0.3rem;
+    display: flex;
+    justify-content: space-around;
+}

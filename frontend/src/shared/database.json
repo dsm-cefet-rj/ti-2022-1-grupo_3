@@ -46,8 +46,8 @@
       "seller": "Cabeleireiro E"
     },
     {
-      "name": "Bruno Oliveira ",
-      "price": "100",
+      "name": "Bruno",
+      "price": "123",
       "images": [
         "/static/media/defaultProfile.ac71f00bba068424d4db.jpeg"
       ],
@@ -108,7 +108,7 @@
       "location": "Casa"
     },
     {
-      "date": "2022-06-20",
+      "date": "2022-06-22",
       "time": "14:00",
       "pay": "Dinheiro",
       "location": "Casa",

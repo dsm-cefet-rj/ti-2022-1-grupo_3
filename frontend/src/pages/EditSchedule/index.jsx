@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { deleteBookingServer, addBookingServer, updateBookingServer, selectBookingById } from '../../BookingsSlice';
+import { deleteBookingServer, updateBookingServer, selectBookingById } from '../../BookingsSlice';
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-import "../../styles/Publication.css"
+import "../../styles/EditSchedule.css"
 
 export default function Agendado() {
 
@@ -42,8 +42,6 @@ export default function Agendado() {
         navigate("/schedule");
     }
 
-    // *-------------------
-
     const booking = useSelector(state => selectBookingById(state, id));
     const status = useSelector(state=>state.bookings.status);
     const error = useSelector(state=>state.bookings.error);
@@ -70,36 +68,64 @@ export default function Agendado() {
         <>
         <Header/>
 
-            <div className="column-left">
-                <img id="image-publi" src={booking.images} width="40%" height="40%"  alt=""/>
+            <div className="main-container" id="form-container">
+                <legend>Editar Agendamento</legend>
+                <br></br>
             </div>
 
-            <div className="column-right">
+            <div className="container-editschedule">
 
-                    <label for="data" className="form-content">Data:</label>
-                    <input type="date" name="date" value={newBooking.date} onChange={handleInputChange} required/>
+                <div className="column-right">
+                    <img id="image-publi" src={booking.images} alt="Imagem da publicação"/>
+                </div>
 
-                    <label for="cabelereiro" className="form-content">Horário:</label>
-                    <input type="time" name="time"  value={newBooking.time} onChange={handleInputChange} required/>
+                <div className="column-left">
 
-                    <label className="form-content">Forma de Pagemento:</label>
-                    <select  name="pay" value={newBooking.pay} onChange={handleInputChange} required>
-                        <option>Escolher...</option>
-                        <option>Dinheiro</option>
-                        <option>Débito</option>
-                        <option>Crédito</option>
-                    </select>
+                    <table className="table-editschedule">
+                        <tr>
+                            <td><p><b>Data: </b></p></td>
+                            <td><p><span>{booking.date}</span></p></td>
+                            <td><input type="date" name="date" value={newBooking.date} onChange={handleInputChange} required/></td>
+                        </tr>
 
-                    <label className="form-content">Local:</label>
-                    <select name="location" value={newBooking.location} onChange={handleInputChange} required>
-                        <option>Escolher...</option>
-                        <option>Casa</option>
-                        <option>Salão</option>
-                    </select>
+                        <tr>
+                            <td><p><b>Horário: </b></p></td>
+                            <td><p><span>{booking.time}</span></p></td>
+                            <td><input type="time" name="time"  value={newBooking.time} onChange={handleInputChange} required/></td>
+                        </tr>
 
-                <button type="submit" id="submit" onClick={(e)=>cancelButton(e)} >Cancelar</button>
-                <button type="submit" id="submit" onClick={(e)=>editBooking(e)}>Editar</button>
-                <button type="submit" id="submit" onClick={handleDelete}>Excluir Agendamento</button>
+                        <tr>
+                            <td><p><b>Pagamento: </b></p></td>
+                            <td><p><span>{booking.pay}</span></p></td>
+                            <td>
+                                <select  name="pay" value={newBooking.pay} onChange={handleInputChange} required>
+                                    <option>Escolher...</option>
+                                    <option>Dinheiro</option>
+                                    <option>Débito</option>
+                                    <option>Crédito</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><p><b>Local: </b></p></td>
+                            <td><p><span>{booking.location}</span></p></td>
+                            <td>
+                                <select name="location" value={newBooking.location} onChange={handleInputChange} required>
+                                    <option>Escolher...</option>
+                                    <option>Casa</option>
+                                    <option>Salão</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div className="buttom-cardschedule">
+                        <button type="submit" id="submit" onClick={(e)=>cancelButton(e)} >Cancelar</button>
+                        <button type="submit" id="submit" onClick={(e)=>editBooking(e)}>Editar</button>
+                        <button type="submit" id="submit" onClick={handleDelete}>Excluir</button>
+                    </div>
+                </div>
             </div>
 
         <Footer/>

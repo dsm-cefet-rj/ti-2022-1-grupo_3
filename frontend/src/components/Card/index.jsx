@@ -7,10 +7,7 @@ export default function Card(props) {
     return (
         <>
             <article className="cards">
-                
-                <Link to={`/publication/${props.product.id}`}>
-                    <img src={props.product.images} alt="Imagem da Publicação" id={props.product.id}/>
-                </Link>
+                <img src={props.product.images} alt="Imagem da Publicação" id={props.product.id}/>
 
                 <div className="card-container">
                     <h6>{props.product.name}</h6>
@@ -24,6 +21,8 @@ export default function Card(props) {
                     <Link to={`/scheduling/${props.product.id}`}>
                         <button className="btn-salvar">Agendar</button>
                     </Link>
+
+                    <Link to={`/editPublication/${props.product.id}`}><p>Editar</p></Link>
                 </div>
             </article>
         </>
