@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts, selectAllProducts } from "../../ProductsSlice";
+import { fetchProducts, selectAllProducts } from '../../reducers/ProductsSlice';
 
 import Card from "../../components/Card";
 import Header from "../../components/Header";

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { addBookingServer, updateBookingServer, selectBookingById } from '../../BookingsSlice';
+import { addBookingServer, updateBookingServer, selectBookingById } from '../../reducers/BookingsSlice';
 
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";

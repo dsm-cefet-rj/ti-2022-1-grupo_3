@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, createEntityAdapter} from '@reduxjs/toolkit';
-import { baseUrl } from './baseUrl';
-import { httpDelete, httpGet, httpPost, httpPut } from './utils';
+import { baseUrl } from '../baseUrl';
+import { httpDelete, httpGet, httpPost, httpPut } from '../utils';
 
 const bookingsAdapter = createEntityAdapter()
 

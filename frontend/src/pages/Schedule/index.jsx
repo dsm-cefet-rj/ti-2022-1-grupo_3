@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBookings, selectALLBookings } from "../../BookingsSlice";
+import { fetchBookings, selectALLBookings } from '../../reducers/BookingsSlice';
 
 import CardSchendule from "../../components/CardSchedule";
 import Header from "../../components/Header";

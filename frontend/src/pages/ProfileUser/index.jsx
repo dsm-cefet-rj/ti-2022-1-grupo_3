@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectAllProducts } from "../../ProductsSlice";
+import { selectAllProducts } from '../../reducers/ProductsSlice';
 
 import Header from "../../components/Header";
 import Card from "../../components/Card";
