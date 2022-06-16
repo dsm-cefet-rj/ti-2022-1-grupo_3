@@ -1,10 +1,10 @@
-import React from "react"
-import { useState } from "react"
+import React from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
-import Header from "../../components/Header"
-import Card from "../../components/Card"
-import Footer from "../../components/Footer"
+import Header from "../../components/Header";
+import Card from "../../components/Card";
+import Footer from "../../components/Footer";
 
 import "../../styles/ProfileCabelereiro.css"
 import hairstylistPicture from "../../images/placeholder_cabeleireiro.jpg";

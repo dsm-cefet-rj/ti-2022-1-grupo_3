@@ -3,8 +3,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProductsServer, updateProductsServer, selectProductsById } from '../../ProductsSlice';
 
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 import "../../styles/EditSchedule.css"
 

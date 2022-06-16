@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, selectAllProducts } from "../../ProductsSlice";
 
-import Card from "../../components/Card"
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
+import Card from "../../components/Card";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 import "../../styles/Home.css"
 

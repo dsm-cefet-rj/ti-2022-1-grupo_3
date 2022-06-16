@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import { addBookingServer, updateBookingServer, selectBookingById } from '../../BookingsSlice';
 
-import Footer from "../../components/Footer"
-import Header from "../../components/Header"
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 
 import "../../styles/Scheduling.css"
 

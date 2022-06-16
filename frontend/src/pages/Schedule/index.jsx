@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBookings, selectALLBookings } from "../../BookingsSlice";
 
 import CardSchendule from "../../components/CardSchedule";
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function Schedule() {
 
