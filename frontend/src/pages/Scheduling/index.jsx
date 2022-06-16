@@ -6,7 +6,7 @@ import { addBookingServer, updateBookingServer, selectBookingById } from '../../
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
-import "../../styles/Scheduling.css"
+import "../../styles/Scheduling.css";
 
 export default function Scheduling() {
 

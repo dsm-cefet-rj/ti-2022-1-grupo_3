@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import "../../styles/CardSchendule.css"
+import "../../styles/CardSchendule.css";
 
 export default function CardSchendule(props) {
     return(

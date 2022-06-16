@@ -1,7 +1,7 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
-import "../../styles/EditProfile.css"
+import "../../styles/EditProfile.css";
 
 export default function EditProfile() {
     return (

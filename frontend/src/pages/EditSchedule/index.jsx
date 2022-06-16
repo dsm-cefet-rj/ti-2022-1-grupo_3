@@ -6,7 +6,7 @@ import { deleteBookingServer, updateBookingServer, selectBookingById } from '../
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
-import "../../styles/EditSchedule.css"
+import "../../styles/EditSchedule.css";
 
 export default function Agendado() {
 

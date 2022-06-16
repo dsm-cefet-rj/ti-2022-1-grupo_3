@@ -1,4 +1,4 @@
-import "../../styles/EspecialidadeCabelereiro.css"
+import "../../styles/EspecialidadeCabelereiro.css";
 
 export default function EspecialidadeCabelereiro() {
     return (
