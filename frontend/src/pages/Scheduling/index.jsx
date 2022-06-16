@@ -6,9 +6,9 @@ import { addBookingServer, updateBookingServer, selectBookingById } from '../../
 import Footer from "../../components/Footer"
 import Header from "../../components/Header"
 
-import "../../styles/Schenduling.css"
+import "../../styles/Scheduling.css"
 
-export default function Schenduling() {
+export default function Scheduling() {
 
     let { id } = useParams();
     id = parseInt(id);

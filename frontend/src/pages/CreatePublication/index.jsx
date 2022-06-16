@@ -8,7 +8,7 @@ import Header from "../../components/Header";
 
 import defaultProfile from "../../images/defaultProfile.jpeg";
 
-import "../../styles/Schenduling.css";
+import "../../styles/Scheduling.css";
 
 export default function CreatePublication() {
 
