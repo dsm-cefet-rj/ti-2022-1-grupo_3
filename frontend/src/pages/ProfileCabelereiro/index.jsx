@@ -1,12 +1,12 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { selectAllProducts } from "../../ProductsSlice";
 
 import Header from "../../components/Header";
 import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 
-import "../../styles/ProfileCabelereiro.css"
+import "../../styles/ProfileCabelereiro.css";
 import hairstylistPicture from "../../images/placeholder_cabeleireiro.jpg";
 
 export default function ProfileCabelereiro(props) {
@@ -22,7 +22,7 @@ export default function ProfileCabelereiro(props) {
         }
     }
 
-    const products = useSelector(state => state.products)
+    const products = useSelector(selectAllProducts)
     const renderProduct = (product) => {
         return (
           <>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { selectAllProducts } from "../../ProductsSlice";
 
 import Header from "../../components/Header";
 import Card from "../../components/Card";
@@ -7,12 +8,12 @@ import Footer from "../../components/Footer";
 
 import { Link } from "react-router-dom";
 
-import "../../styles/ProfileUser.css"
+import "../../styles/ProfileUser.css";
 import userPicture from "../../images/exemplo1.jpeg";
 
 export default function ProfileUser(props) {
 
-    const products = useSelector(state => state.products)
+    const products = useSelector(selectAllProducts)
     const renderProduct = (product) => {
         return (
           <>
