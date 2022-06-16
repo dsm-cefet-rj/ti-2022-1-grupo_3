@@ -1,6 +1,5 @@
 import { createAsyncThunk, createEntityAdapter, createSlice } from "@reduxjs/toolkit";
 import { httpGet, httpPost, httpDelete, httpPut } from '../utils';
-import { baseUrl } from '../baseUrl';
 
 const productsAdapter = createEntityAdapter();
 
@@ -8,6 +7,8 @@ const initialState = productsAdapter.getInitialState({
     status: "not_loaded",
     error: null
 });
+
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const fetchProducts = createAsyncThunk('database/fetchProducts', async() => {
     return await httpGet(`${baseUrl}/products`);
