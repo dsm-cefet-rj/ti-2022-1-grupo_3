@@ -15,11 +15,11 @@ export default function Schedule() {
     
     const renderBooking = (booking) => {
         return (
-            <React.Fragment>
+            <>
                 {booking.status !== "Agendado" && (
                     <CardSchendule booking={booking} key={booking.id} />
                 )}
-            </React.Fragment>
+            </>
         );
     };
 

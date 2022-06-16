@@ -17,11 +17,11 @@ export default function Home(props) {
 
     const renderProduct = (product) => {
         return (
-            <React.Fragment>
+            <>
                 {product.status !== "Agendado" && (
                     <Card product={product} key={product.name} />
                 )}
-            </React.Fragment>
+            </>
         );
     };
 

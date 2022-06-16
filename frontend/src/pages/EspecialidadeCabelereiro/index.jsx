@@ -42,12 +42,12 @@ export default function EspecialidadeCabelereiro() {
             <section>
                 <div>
                     <ul className="profile-tabs">
-                        <a href="#">
+                        <Link to="#" href="#">
                             <li>Meus cortes</li>
-                        </a>
-                        <a className="selected" href="#">
+                        </Link>
+                        <Link to="#" className="selected">
                             <li>Minhas especialidades</li>
-                        </a>
+                        </Link>
                     </ul>
                 </div>
 

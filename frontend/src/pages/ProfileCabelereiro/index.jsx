@@ -25,11 +25,11 @@ export default function ProfileCabelereiro(props) {
     const products = useSelector(state => state.products)
     const renderProduct = (product) => {
         return (
-          <React.Fragment>
+          <>
             {product.status !== "Agendado" && (
               <Card product={product} key={product.name} />
             )}
-          </React.Fragment>
+          </>
         );
     };
 
