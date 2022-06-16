@@ -17,7 +17,7 @@ export default function Header(props) {
             </Link>
           </div>
 
-          <div id="main-container" className={isNavActive && "active"}>
+          <div id="main-container" className={isNavActive ? "active" : ""}>
             <div className="search-container" title="O que deseja encontrar?">
               <form className="search-bar">
                 <input type="search" placeholder="O que deseja encontrar?" />
