@@ -59,13 +59,13 @@ export default function CreatePublication() {
                 <form action="#" method="post" id="form-container">
                     <legend>Criar Publicação</legend>
 
-                    <label for="title" className="form-content">Título:</label>
+                    <label htmlFor="title" className="form-content">Título:</label>
                     <input type="text" name="name" className="form-content" value={newProduct.name} onChange={handleInputChange} required/>
 
-                    <label for="price" className="form-content">Preço:</label>
+                    <label htmlFor="price" className="form-content">Preço:</label>
                     <input type="number" name="price" className="form-content" value={newProduct.price} onChange={handleInputChange} required/>
 
-                    <label for="images" className="form-content">Image:</label>
+                    <label htmlFor="images" className="form-content">Image:</label>
                     <input type="file" name="images" className="form-content" value={newProduct.images} onChange={handleInputChange} required/>
 
                     <div className="button-container">

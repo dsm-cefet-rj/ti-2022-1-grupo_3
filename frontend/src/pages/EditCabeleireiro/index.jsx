@@ -74,19 +74,19 @@ export default function EditCabeleireiro() {
                     <legend>Editar Cabeleireiro</legend>
                     <p>value={seller.id}</p>
 
-                    <label for="name" className="form-content">Nome:</label>
+                    <label htmlFor="name" className="form-content">Nome:</label>
                     <input type="text" name="name" className="form-content" value={newSeller.name} onChange={handleInputChange} required/>
 
-                    <label for="username" className="form-content">Username:</label>
+                    <label htmlFor="username" className="form-content">Username:</label>
                     <input type="text" name="username" className="form-content" value={newSeller.username} onChange={handleInputChange} required/>
 
-                    <label for="birthday" className="form-content">Data de Nascimento:</label>
+                    <label htmlFor="birthday" className="form-content">Data de Nascimento:</label>
                     <input type="text" name="birthday" className="form-content" value={newSeller.birthday} onChange={handleInputChange} required/>
 
-                    <label for="email" className="form-content">E-mail:</label>
+                    <label htmlFor="email" className="form-content">E-mail:</label>
                     <input type="text" name="email" className="form-content" value={newSeller.email} onChange={handleInputChange} required/>
 
-                    <label for="password" className="form-content">Senha:</label>
+                    <label htmlFor="password" className="form-content">Senha:</label>
                     <input type="password" name="password" className="form-content" value={newSeller.password} onChange={handleInputChange} required/>
 
                     <div className="button-container">

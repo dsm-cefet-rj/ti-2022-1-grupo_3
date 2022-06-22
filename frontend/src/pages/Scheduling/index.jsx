@@ -54,10 +54,10 @@ export default function Scheduling() {
                 <form action="#" id="form-container">
                     <legend>Marque o seu corte!!!</legend>
 
-                    <label for="data" className="form-content">Data:</label>
+                    <label htmlFor="data" className="form-content">Data:</label>
                     <input type="date" name="date" className="form-content" value={newBooking.date} onChange={handleInputChange} required/>
 
-                    <label for="cabelereiro" className="form-content">Horário:</label>
+                    <label htmlFor="cabelereiro" className="form-content">Horário:</label>
                     <input type="time" name="time" className="form-content" value={newBooking.time} onChange={handleInputChange} required/>
 
                     <label className="form-content">Forma de Pagemento:</label>
