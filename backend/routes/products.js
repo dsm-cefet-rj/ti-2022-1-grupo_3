@@ -48,12 +48,13 @@ var products = [
     "idSeller": 2
   },
   {
+    "id": 6,
     "name": "aaaa",
     "price": "30",
     "images": [
       "/static/media/defaultProfile.ac71f00bba068424d4db.jpeg"
     ],
-    "id": 6
+    "idSeller": 1
   }
 ];
 

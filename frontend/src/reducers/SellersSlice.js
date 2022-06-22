@@ -8,7 +8,7 @@ const initialState = sellersAdapter.getInitialState({
     error: null,
 });
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = 'http://localhost:3004';
 
 export const fetchSellers = createAsyncThunk("database/fetchSellers", async () => {
     return await httpGet(`${baseUrl}/sellers`);

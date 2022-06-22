@@ -8,7 +8,7 @@ const initialBookings = bookingsAdapter.getInitialState({
     error: null,
 })
 
-const baseUrl = process.env.REACT_APP_BASE_URL;
+const baseUrl = 'http://localhost:3004';
 
 export const fetchBookings = createAsyncThunk('database/fetchBookings', async() =>{
     return await httpGet(`${baseUrl}/bookings`)
