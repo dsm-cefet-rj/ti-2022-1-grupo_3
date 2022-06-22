@@ -13,10 +13,8 @@ export default function Schedule() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (status === 'not loaded') {
+        if (status !== 'loaded') {
             dispatch(fetchBookings())
-        } else if (status !== 'loaded') {
-            setTimeout(() => dispatch(fetchBookings()), 1000)
         }
     }, [status, dispatch])
     

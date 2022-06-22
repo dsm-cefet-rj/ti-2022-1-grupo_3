@@ -9,7 +9,7 @@ var products = [
     ],
     "name": "Cabelo Teste",
     "price": 30,
-    "seller": "Cabeleireiro A"
+    "idSeller": 1
   },
   {
     "id": 2,
@@ -18,7 +18,7 @@ var products = [
     ],
     "name": "Cabelo B",
     "price": 45,
-    "seller": "Cabeleireiro B"
+    "idSeller": 1
   },
   {
     "id": 3,
@@ -27,7 +27,7 @@ var products = [
     ],
     "name": "Cabelo C",
     "price": 50.5,
-    "seller": "Cabeleireiro C"
+    "idSeller": 2
   },
   {
     "id": 4,
@@ -36,7 +36,7 @@ var products = [
     ],
     "name": "Cabelo D",
     "price": 100,
-    "seller": "Cabeleireiro D"
+    "idSeller": 1
   },
   {
     "id": 5,
@@ -45,7 +45,15 @@ var products = [
     ],
     "name": "Cabelo Comprido",
     "price": "100",
-    "seller": "Cabeleireiro E"
+    "idSeller": 2
+  },
+  {
+    "name": "aaaa",
+    "price": "30",
+    "images": [
+      "/static/media/defaultProfile.ac71f00bba068424d4db.jpeg"
+    ],
+    "id": 6
   }
 ];
 

@@ -4,25 +4,15 @@ var router = express.Router();
 var bookings = [
   {
     "id": 1,
-    "images": [
-      "https://images.unsplash.com/photo-1560869713-bf165a9cfac1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=326&q=80"
-    ],
-    "name": "Cabelo A",
-    "price": 30,
-    "seller": "Cabeleireiro A",
-    "date": "2022-06-15",
+    "idProduct": 1,
+    "date": "15/06/2022",
     "time": "22:29",
     "pay": "Dinheiro",
     "location": "Casa"
   },
   {
     "id": 2,
-    "images": [
-      "https://images.unsplash.com/photo-1579084061716-7a321d7687eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fGhhaXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-    ],
-    "name": "Cabelo B",
-    "price": 45,
-    "seller": "Cabeleireiro B",
+    "idProduct": 2,
     "date": "25/05/2022",
     "time": "21:28",
     "pay": "Dinheiro",
@@ -30,36 +20,35 @@ var bookings = [
   },
   {
     "id": 3,
-    "images": [
-      "https://images.unsplash.com/photo-1548207800-8c16d068bf17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTV8fGhhaXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-    ],
-    "name": "Cabelo C",
-    "price": 50.5,
-    "seller": "Cabeleireiro C",
-    "date": "2022-06-08",
+    "idProduct": 3,
+    "date": "08/06/2022",
     "time": "21:28",
     "pay": "Dinheiro",
     "location": "Casa"
   },
   {
     "id": 4,
-    "images": [
-      "https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fGhhaXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-    ],
-    "name": "Cabelo D",
-    "price": 100,
-    "seller": "Cabeleireiro D",
+    "idProduct": 4,
     "date": "25/05/2022",
     "time": "21:28",
     "pay": "Dinheiro",
     "location": "Casa"
   },
   {
-    "date": "2022-06-22",
-    "time": "16:00",
+    "id": 5,
+    "idProduct": 5,
+    "date": "16/06/2022",
+    "time": "19:00",
     "pay": "Dinheiro",
-    "location": "Casa",
-    "id": 5
+    "location": "Salão"
+  },
+  {
+    "id": 6,
+    "idProduct": 5,
+    "date": "08/06/2022",
+    "time": "05:24",
+    "pay": "Dinheiro",
+    "location": "Salão"
   }
 ];
 

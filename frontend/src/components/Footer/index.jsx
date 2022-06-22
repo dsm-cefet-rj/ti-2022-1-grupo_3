@@ -11,9 +11,9 @@ export default function Footer(props) {
                 </Link>
 
                 <div id="social">
-                    <Link to="#"><img src="./facebook.svg" alt="Logo do Facebook"/></Link>
-                    <Link to="#"><img src="./instagram.svg" alt="Logo do Instagram"/></Link>
-                    <Link to="#"><img src="./twitter.svg" alt="Logo dp Twitter"/></Link>
+                    <Link to="#"><img src={process.env.PUBLIC_URL + '/facebook.svg'} alt="Logo do Facebook"/></Link>
+                    <Link to="#"><img src={process.env.PUBLIC_URL + '/instagram.svg'} alt="Logo do Instagram"/></Link>
+                    <Link to="#"><img src={process.env.PUBLIC_URL + '/twitter.svg'} alt="Logo dp Twitter"/></Link>
                 </div>
 
                 <div id="copy">
