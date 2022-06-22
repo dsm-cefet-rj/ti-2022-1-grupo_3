@@ -1,10 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const bodyParser = require('body-parser');
 
-router.use(bodyParser.json())
-
-let bookings = [
+var bookings = [
   {
     "id": 1,
     "images": [
@@ -66,24 +63,41 @@ let bookings = [
   }
 ];
 
-
-
-
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-
+router.route("/").get((req, res, next) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
+  res.setHeader("Content-Type", "application/json");
   res.json(bookings);
-
 });
 
-router.delete('/', function(req, res, next) {
-
+router.route("/:id").get((req, res, next) => {
+  let id = parseInt(req.params.id);
+  let booking = bookings.filter((booking) => (booking.id = id));
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'application/json');
-  res.json(bookings);
-
+  res.setHeader("Content-Type", "application/json");
+  res.json(booking);
 });
-
+router.route("/:id").delete((req, res, next) => {
+  let id = parseInt(req.params.id);
+  bookings = bookings.filter((booking) => booking.id != id);
+  res.statusCode = 200;
+  res.setHeader("Content-type", "application/json");
+  res.json(id);
+});
+router.route("/:id").put((req, res, next) => {
+  let id = parseInt(req.params.id);
+  id = bookings.map((booking) => (booking = booking.id)).indexOf(id);
+  bookings.splice(id, 1, req.body);
+  res.setHeader("Content-Type", "application/json");
+  res.statusCode = 200;
+  res.json(req.body);
+});
+router.route("/").post((req, res, next) => {
+  let nextId =
+    bookings.map((booking) => booking.id).reduce((x, y) => Math.max(x, y)) + 1;
+  let booking = { ...req.body, id: nextId };
+  bookings.push(booking);
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  res.json(booking);
+});
 module.exports = router;
