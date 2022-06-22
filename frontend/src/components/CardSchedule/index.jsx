@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { selectProductsById } from '../../reducers/ProductsSlice'
-import { selectSellersById } from '../../reducers/SellerSlice'
+import { selectSellersById } from '../../reducers/SellersSlice'
 
 import "../../styles/CardSchedule.css";
 

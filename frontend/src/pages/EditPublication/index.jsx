@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProductsServer, updateProductsServer, selectProductsById } from '../../reducers/ProductsSlice';
-import { selectSellersById } from '../../reducers/SellerSlice';
+import { selectSellersById } from '../../reducers/SellersSlice';
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";

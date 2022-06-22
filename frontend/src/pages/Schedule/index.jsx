@@ -7,11 +7,18 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 export default function Schedule() {
-
     const bookings = useSelector(selectALLBookings);
     const status = useSelector(state=>state.bookings.status);
     const error = useSelector(state=>state.bookings.error);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (status === 'not loaded') {
+            dispatch(fetchBookings())
+        } else if (status !== 'loaded') {
+            setTimeout(() => dispatch(fetchBookings()), 1000)
+        }
+    }, [status, dispatch])
     
     const renderBooking = (booking) => {
         return (
@@ -22,14 +29,6 @@ export default function Schedule() {
             </>
         );
     };
-
-    useEffect(() => {
-        if(status === 'not loaded'){
-            dispatch(fetchBookings())
-        }else if(status === 'not loaded'){
-            setTimeout(() => dispatch(fetchBookings()), 5000)
-        }
-    }, [status, dispatch])
     
     let bookingList = '';
 
