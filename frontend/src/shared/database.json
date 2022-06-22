@@ -41,9 +41,17 @@
       "images": [
         "https://images.unsplash.com/photo-1570779380181-43ab3111bbb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80"
       ],
-      "name": "Cabelo Comprido",
-      "price": "100",
+      "name": "Cabelo Grande",
+      "price": "150",
       "idSeller": 2
+    },
+    {
+      "name": "aaaa",
+      "price": "30",
+      "images": [
+        "/static/media/defaultProfile.ac71f00bba068424d4db.jpeg"
+      ],
+      "id": 6
     }
   ],
   "bookings": [
