@@ -47,9 +47,23 @@ export default function Header(props) {
               </li>
 
               <li>
-                <Link to="/">
+                <Link to="/newPublication">
                   <IoSettingsOutline className="icon" />
-                  <span className="nav-link">Configurações</span>
+                  <span className="nav-link">Nova Publicação</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/registerCabeleireiro">
+                  <IoSettingsOutline className="icon" />
+                  <span className="nav-link">Novo Cabeleireiro</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/schedule">
+                  <IoSettingsOutline className="icon" />
+                  <span className="nav-link">Agendamento</span>
                 </Link>
               </li>
             </ul>

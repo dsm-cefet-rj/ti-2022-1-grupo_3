@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProductsServer, updateProductsServer, selectProductsById } from '../../reducers/ProductsSlice';
+import { selectSellersById } from '../../reducers/SellerSlice';
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -19,10 +20,10 @@ export default function Publication() {
     
     const [actionType] = useState(
         id ? 
-        productFound
-        ? 'formPublication/updateProduct'
-        : 'formPublication/addProduct'
-        : 'formPublication/addProduct'
+            productFound
+            ? 'formPublication/updateProduct'
+            : 'formPublication/addProduct'
+            : 'formPublication/addProduct'
     );
         
     const dispatch = useDispatch();
@@ -44,6 +45,7 @@ export default function Publication() {
     }
    
     const product = useSelector(state => selectProductsById(state, id));
+    const seller = useSelector(state=>selectSellersById(state,product.idSeller))
     const status = useSelector(state=>state.products.status);
     const error = useSelector(state=>state.products.error);
 
@@ -97,7 +99,7 @@ export default function Publication() {
 
                         <tr>
                             <td><p><b>Cabeleireiro: </b></p></td>
-                            <td><p><span>{product.seller}</span></p></td>
+                            <td><p><span>{seller.name}</span></p></td>
                         </tr>
                     </table>
                     

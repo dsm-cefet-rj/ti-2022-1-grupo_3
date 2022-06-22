@@ -7,7 +7,7 @@
       ],
       "name": "Cabelo Teste",
       "price": 30,
-      "seller": "Cabeleireiro A"
+      "idSeller": 1
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       ],
       "name": "Cabelo B",
       "price": 45,
-      "seller": "Cabeleireiro B"
+      "idSeller": 1
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       ],
       "name": "Cabelo C",
       "price": 50.5,
-      "seller": "Cabeleireiro C"
+      "idSeller": 2
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       ],
       "name": "Cabelo D",
       "price": 100,
-      "seller": "Cabeleireiro D"
+      "idSeller": 1
     },
     {
       "id": 5,
@@ -43,7 +43,7 @@
       ],
       "name": "Cabelo Comprido",
       "price": "100",
-      "seller": "Cabeleireiro E"
+      "idSeller": 2
     }
   ],
   "bookings": [
@@ -100,11 +100,29 @@
       "location": "Casa"
     },
     {
-      "date": "2022-06-22",
-      "time": "16:00",
+      "date": "2022-06-16",
+      "time": "19:00",
       "pay": "Dinheiro",
-      "location": "Casa",
-      "id": 5
+      "location": "Salão",
+      "id": 6
+    }
+  ],
+  "sellers": [
+    {
+      "id": 1,
+      "name": "Cabeleireiro A",
+      "username": "CabeA",
+      "birthday": "2000-11-06",
+      "email": "cabeleireiroa@gmail.com",
+      "password": ""
+    },
+    {
+      "id": 2,
+      "name": "Cabeleireiro B",
+      "username": "CabeB",
+      "birthday": "2001-04-26",
+      "email": "cabeleireirob@gmail.com",
+      "password": ""
     }
   ]
 }

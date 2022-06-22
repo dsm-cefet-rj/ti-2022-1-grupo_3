@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { addProductsServer, updateProductsServer, selectProductsById } from '../../reducers/ProductsSlice';
+import { addProductsServer, selectProductsById } from '../../reducers/ProductsSlice';
 
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -42,10 +42,7 @@ export default function CreatePublication() {
             newProduct.images = [defaultProfile];
             dispatch(addProductsServer(newProduct));
             alert("Produto Cadastrado com sucesso!");
-        } else {
-            dispatch(updateProductsServer(newProduct));
-            alert("Produto Atualizado com sucesso!");
-        }
+        } 
         
         navigate("/");
     }

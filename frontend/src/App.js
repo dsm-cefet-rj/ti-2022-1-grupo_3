@@ -5,7 +5,8 @@ import CreatePublication from "./pages/CreatePublication";
 import Home from "./pages/Home";
 import ProfileCabelereiro from "./pages/ProfileCabelereiro";
 import ProfileUser from "./pages/ProfileUser";
-import Register from "./pages/Register";
+import RegisterCabeleireiro from "./pages/RegisterCabeleireiro";
+import EditCabeleireiro from "./pages/EditCabeleireiro";
 import Schedule from "./pages/Schedule";
 import Scheduling from "./pages/Scheduling";
 import EditSchedule from "./pages/EditSchedule";
@@ -16,11 +17,13 @@ function App() {
     <>
         <Router>
           <Routes>
-            <Route path="/" exact element={<Home/>}/>
-            <Route path="/register" element={<Register/>}/>
+            <Route path="/registerCabeleireiro" element={<RegisterCabeleireiro/>}/>
+            <Route path="/editCabeleireiro/:id" element={<EditCabeleireiro/>}/>
+
             <Route path="/me" element={<ProfileUser/>}/>
             <Route path="/cabeleireiro" element={<ProfileCabelereiro/>}/>
 
+            <Route path="/" exact element={<Home/>}/>
             <Route path="/newPublication" element={<CreatePublication/>}/>
             <Route exact path="/EditPublication/:id" element={<EditPublication/>}/>
             

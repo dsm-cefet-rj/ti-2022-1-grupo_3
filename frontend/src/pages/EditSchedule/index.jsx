@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBookingServer, updateBookingServer, selectBookingById } from '../../reducers/BookingsSlice';
+import { selectProductsById } from "../../reducers/ProductsSlice";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -43,6 +44,7 @@ export default function Agendado() {
     }
 
     const booking = useSelector(state => selectBookingById(state, id));
+    var product = useSelector(state=>selectProductsById(state, booking.idProduct))
     const status = useSelector(state=>state.bookings.status);
     const error = useSelector(state=>state.bookings.error);
 
@@ -76,7 +78,7 @@ export default function Agendado() {
             <div className="container-editschedule">
 
                 <div className="column-right">
-                    <img id="image-publi" src={booking.images} alt="Imagem da publicação"/>
+                    <img id="image-publi" src={product.images} alt="Imagem da publicação"/>
                 </div>
 
                 <div className="column-left">
