@@ -1,4 +1,4 @@
-.main-cardschendule {
+.main-cardSchedule {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -6,7 +6,7 @@
     line-height: 200%;
 }
 
-.container-cardschendule{
+.container-cardSchedule{
     box-shadow: 0 0 3em rgba(0,0,0,0.4);
     display: inline-block;
     border-radius: 0.75rem;
@@ -20,12 +20,12 @@
     margin: 3% 3%;
 }
 
-.left-cardschendule{
+.left-cardSchedule{
     width: 50%;
     float:left;
 }
 
-.image-cardschendule {
+.image-cardSchedule {
     padding-top: 1.1rem ;
 
     justify-content: center;
@@ -34,7 +34,7 @@
     height: 180px;
 } 
 
-.right-cardschendule{
+.right-cardSchedule{
     display: block;
     flex-direction: column;
     text-align: center;

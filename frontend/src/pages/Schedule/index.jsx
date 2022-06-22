@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBookings, selectALLBookings } from '../../reducers/BookingsSlice';
 
-import CardSchendule from "../../components/CardSchedule";
+import CardSchedule from "../../components/CardSchedule";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
@@ -17,7 +17,7 @@ export default function Schedule() {
         return (
             <>
                 {booking.status !== "Agendado" && (
-                    <CardSchendule booking={booking} key={booking.id} />
+                    <CardSchedule booking={booking} key={booking.id} />
                 )}
             </>
         );
