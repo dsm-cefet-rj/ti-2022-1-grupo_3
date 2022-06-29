@@ -32,7 +32,6 @@ router.route("/").post(async (req, res, next) => {
     const response = await newSeller.save();
     res.status(200).json(response);
   } catch (err) {
-    console.log(err);
     res.status(500).json({});
   }
 });

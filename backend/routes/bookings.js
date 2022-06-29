@@ -1,92 +1,64 @@
 var express = require('express');
 var router = express.Router();
+var bookingModel = require('../models/bookings');
+const bodyParser = require('body-parser');
 
-var bookings = [
-  {
-    "id": 1,
-    "idProduct": 1,
-    "date": "15/06/2022",
-    "time": "22:29",
-    "pay": "Dinheiro",
-    "location": "Casa"
-  },
-  {
-    "id": 2,
-    "idProduct": 2,
-    "date": "25/05/2022",
-    "time": "21:28",
-    "pay": "Dinheiro",
-    "location": "Casa"
-  },
-  {
-    "id": 3,
-    "idProduct": 3,
-    "date": "08/06/2022",
-    "time": "21:28",
-    "pay": "Dinheiro",
-    "location": "Casa"
-  },
-  {
-    "id": 4,
-    "idProduct": 4,
-    "date": "25/05/2022",
-    "time": "21:28",
-    "pay": "Dinheiro",
-    "location": "Casa"
-  },
-  {
-    "id": 5,
-    "idProduct": 5,
-    "date": "16/06/2022",
-    "time": "19:00",
-    "pay": "Dinheiro",
-    "location": "Salão"
-  },
-  {
-    "id": 6,
-    "idProduct": 5,
-    "date": "08/06/2022",
-    "time": "05:24",
-    "pay": "Dinheiro",
-    "location": "Salão"
+router.use(bodyParser.json())
+
+/* GET (read) bookings listing. */
+router.route("/").get(async (req, res, next) => {
+  try {
+    const booking = await bookingModel.find();
+    res.status(200).json(booking || {});
+  } catch (err) {
+    res.status(404).json({});
   }
-];
-
-router.route("/").get((req, res, next) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  res.json(bookings);
 });
 
-router.route("/:id").get((req, res, next) => {
-  let id = parseInt(req.params.id);
-  let booking = bookings.filter((booking) => (booking.id = id));
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  res.json(booking);
+router.route("/:id").get(async (req, res, next) => {
+  try {
+    const booking = await bookingModel.findById(req.params.id);
+    res.status(200).json(booking || {});
+  } catch (err) {
+    res.status(404).json({});
+  }
 });
-router.route("/:id").delete((req, res, next) => {
-  let id = parseInt(req.params.id);
-  bookings = bookings.filter((booking) => booking.id != id);
-  res.statusCode = 200;
-  res.setHeader("Content-type", "application/json");
-  res.json(id);
+
+/* POST (create) booking. */
+router.route("/").post(async (req, res, next) => {
+  let newbooking = new bookingModel({...req.body});
+
+  try {
+    const response = await newbooking.save();
+    res.status(200).json(response);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({});
+  }
 });
-router.route("/:id").put((req, res, next) => {
-  let id = parseInt(req.params.id);
-  id = bookings.map((booking) => (booking = booking.id)).indexOf(id);
-  bookings.splice(id, 1, req.body);
-  res.setHeader("Content-Type", "application/json");
-  res.statusCode = 200;
-  res.json(req.body);
+
+/* PUT (update) booking. */
+router.route("/:id").put(async (req, res, next) => {
+	try {
+		const response = await bookingModel
+			.findByIdAndUpdate(req.params.id, {
+				...req.body
+			});
+
+		res.status(200).json(response);
+	} catch (err) {
+		res.status(500).json({});
+	}
 });
-router.route("/").post((req, res, next) => {
-  let nextId =
-    bookings.map((booking) => booking.id).reduce((x, y) => Math.max(x, y)) + 1;
-  let booking = { ...req.body, id: nextId };
-  bookings.push(booking);
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "application/json");
-  res.json(booking);
+
+/* DELETE (delete) booking. */
+router.route("/:id").delete(async (req, res, next) => {
+  try {
+    const response = await bookingModel.findByIdAndRemove(req.params.id);
+    res.status(200).json(req.params.id);
+  } catch (err) {
+    res.status(404).json({});
+  }
 });
+
 module.exports = router;

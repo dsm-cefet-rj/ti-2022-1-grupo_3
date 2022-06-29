@@ -4,7 +4,11 @@ const Schema = mongoose.Schema;
 
 const BookingSchema = new Schema({
   date: {
-    type: Date,
+    type: String,
+    required: true,
+  },
+  time: {
+    type: String,
     required: true,
   },
   pay: {
@@ -22,26 +26,7 @@ const BookingSchema = new Schema({
   },
 });
 
-bookingSchema.virtual('time')
-.get(function () {
-    const hours = this.date.getHours();
-    const minutes = this.date.getMinutes();
-    return `${hours}:${minutes}`;
-})
-.set(function(newTime) {
-    const hours = newTime.split(':')[0];
-    const minutes = newTime.split(':')[1];
-
-    const newDate = this.date;
-    newDate.setHours(hours);
-    newDate.setMinutes(minutes);
-    newDate.setSeconds(0);
-    newDate.setMilliseconds(0);
-
-    this.set('date', newDate);
-});
-
-bookingSchema.plugin(normalize);
+BookingSchema.plugin(normalize);
 
 var bookings = mongoose.model("Booking", BookingSchema);
 module.exports = bookings;
