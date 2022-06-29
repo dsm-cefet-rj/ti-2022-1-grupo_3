@@ -1,4 +1,6 @@
+require("dotenv").config();    
 var express = require("express");
+var mongoose = require('mongoose');
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -11,6 +13,14 @@ var sellersRouter = require("./routes/sellers");
 
 var app = express();
 
+mongoose
+.connect(process.env.DB_CONNECT, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => console.log("MongoDB is ready"))
+.catch((err) => console.log(err));
+  
 app.use(logger("dev"));
 app.use(express.json());
 app.use(cors());
