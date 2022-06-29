@@ -11,9 +11,7 @@ import defaultProfile from "../../images/defaultProfile.jpeg";
 import "../../styles/Scheduling.css";
 
 export default function CreatePublication() {
-
     let { id } = useParams();
-    id = parseInt(id);
 
     const productFound = useSelector(state => selectProductsById(state, id))
 

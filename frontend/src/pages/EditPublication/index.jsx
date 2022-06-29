@@ -10,9 +10,7 @@ import Footer from "../../components/Footer";
 import "../../styles/EditSchedule.css";
 
 export default function Publication() {
-
     let { id } = useParams();
-    id = parseInt(id);
     
     const productFound = useSelector(state => selectProductsById(state, id))
     

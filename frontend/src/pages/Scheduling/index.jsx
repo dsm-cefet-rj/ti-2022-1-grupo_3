@@ -9,9 +9,7 @@ import Header from "../../components/Header";
 import "../../styles/Scheduling.css";
 
 export default function Scheduling() {
-
     let { id } = useParams();
-    id = parseInt(id);
 
     const bookingFound = useSelector(state => selectBookingById(state, id))
     

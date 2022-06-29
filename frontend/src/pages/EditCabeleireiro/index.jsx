@@ -9,9 +9,7 @@ import Footer from "../../components/Footer";
 import "../../styles/EditSchedule.css";
 
 export default function EditCabeleireiro() {
-
     let { id } = useParams();
-    id = parseInt(id);
 
     const sellerFound = useSelector((state) => selectSellersById(state, id));
 

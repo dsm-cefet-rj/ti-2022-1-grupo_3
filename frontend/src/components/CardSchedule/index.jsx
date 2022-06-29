@@ -15,13 +15,13 @@ export default function CardSchedule({booking}) {
             <div className="main-cardSchedule">
                 <div className="container-cardSchedule">
                     <div className="left-cardSchedule">
-                        <p> <span><b>Título: </b>{product.name}</span> </p>
-                        <p> <span><b>R$ </b>{product.price}</span></p>
-                        <p> <span><b>Forma Pagamento: </b> {booking.pay} </span></p>
-                        <p> <span><b>Local: </b> {booking.location}</span> </p>
-                        <p> <span><b>Data: </b> {booking.date}</span></p>
-                        <p> <span><b>Hora: </b> {booking.time}</span></p>
-                        <p> <span><b>Cabeleireiro:</b> {seller.name}</span></p>
+                        <p><span><b>Título: </b>{product.name}</span></p>
+                        <p><span><b>R$ </b>{product.price}</span></p>
+                        <p><span><b>Forma Pagamento: </b> {booking.pay}</span></p>
+                        <p><span><b>Local: </b> {booking.location}</span></p>
+                        <p><span><b>Data: </b> {booking.date}</span></p>
+                        <p><span><b>Hora: </b> {booking.time}</span></p>
+                        <p><span><b>Cabeleireiro:</b> {seller.name}</span></p>
                     </div>
 
                     <div className="right-cardSchedule">

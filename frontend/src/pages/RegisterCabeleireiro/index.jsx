@@ -9,9 +9,7 @@ import Header from "../../components/Header";
 import "../../styles/Register.css";
 
 export default function Register() {
-
     let { id } = useParams();
-    id = parseInt(id);
 
     const sellerFound = useSelector((state) => selectSellersById(state, id));
 

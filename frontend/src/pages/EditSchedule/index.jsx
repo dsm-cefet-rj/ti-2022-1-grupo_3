@@ -10,9 +10,7 @@ import Footer from "../../components/Footer";
 import "../../styles/EditSchedule.css";
 
 export default function Agendado() {
-
     let { id } = useParams();
-    id = parseInt(id);
 
     const bookingFound = useSelector(state => selectBookingById(state, id))
     
