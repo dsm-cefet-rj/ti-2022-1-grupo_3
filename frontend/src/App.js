@@ -11,6 +11,8 @@ import Schedule from "./pages/Schedule";
 import Scheduling from "./pages/Scheduling";
 import EditSchedule from "./pages/EditSchedule";
 import EditPublication from './pages/EditPublication';
+import Login from "./pages/Login";
+import UserRegister from "./pages/UserRegister";
 
 function App() {
   return (
@@ -30,6 +32,9 @@ function App() {
             <Route path="/scheduling/:id" element={<Scheduling/>}/>
             <Route path="/schedule" element={<Schedule/>}/>
             <Route path="/editSchedule/:id" element={<EditSchedule/>}/>
+
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/userRegister" element={<UserRegister/>}/>
 
           </Routes>
         </Router>
