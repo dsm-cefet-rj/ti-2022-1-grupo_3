@@ -13,6 +13,7 @@ import EditSchedule from "./pages/EditSchedule";
 import EditPublication from './pages/EditPublication';
 import Login from "./pages/Login";
 import UserRegister from "./pages/UserRegister";
+import Cabeleireiros from "./pages/Cabeleireiros";
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
             <Route path="/editCabeleireiro/:id" element={<EditCabeleireiro/>}/>
 
             <Route path="/me" element={<ProfileUser/>}/>
-            <Route path="/cabeleireiro" element={<ProfileCabelereiro/>}/>
+            <Route path="/cabeleireiro/:id" element={<ProfileCabelereiro/>}/>
+            <Route path="/cabeleireiros" element={<Cabeleireiros/>}/>
 
             <Route path="/" exact element={<Home/>}/>
             <Route path="/newPublication" element={<CreatePublication/>}/>
@@ -35,7 +37,6 @@ function App() {
 
             <Route path="/login" element={<Login/>}/>
             <Route path="/userRegister" element={<UserRegister/>}/>
-
           </Routes>
         </Router>
     </>

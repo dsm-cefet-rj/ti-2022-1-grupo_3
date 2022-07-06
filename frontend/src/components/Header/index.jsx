@@ -40,7 +40,7 @@ export default function Header(props) {
               </li>
 
               <li>
-                <Link to="/cabeleireiro">
+                <Link to="/cabeleireiros">
                   <IoCutOutline className="icon" />
                   <span className="nav-link">Cabeleireiros</span>
                 </Link>

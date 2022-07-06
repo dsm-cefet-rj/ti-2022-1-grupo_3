@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { selectAllProducts } from '../../reducers/ProductsSlice';
+import { selectSellersById } from "../../reducers/SellersSlice";
 
 import Header from "../../components/Header";
 import Card from "../../components/Card";
@@ -33,6 +36,10 @@ export default function ProfileCabelereiro(props) {
         );
     };
 
+    let { id } = useParams();
+
+    const sellers = useSelector(state => selectSellersById(state, id));
+
     return (
         <main>
             <Header/>
@@ -45,15 +52,21 @@ export default function ProfileCabelereiro(props) {
                         />
                     </div>
 
-                    <h2 className="user-name">Nome do cabeleireiro</h2>
+                    <h2 className="user-name">{sellers.name}</h2>
 
                     <p className="user-description">
-                        Breve descrição do cabeleireiro e de seu trabalho
+                        Username: {sellers.username} |
+                        E-mail {sellers.email} |
+                        Data Nascimento: {sellers.birthday}
                     </p>
 
                     <button className="edit profile" type="button" onClick={handleFollow}>
                         {`${follow}`}
                     </button>
+
+                    <Link to={`/editCabeleireiro/${sellers.id}`}>
+                        <p>Editar</p>
+                    </Link>
 
                     <div className="user-stats">
                         <dl className="stat">
