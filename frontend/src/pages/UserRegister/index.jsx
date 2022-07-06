@@ -43,7 +43,7 @@ export default function UserRegister() {
         <>
             <div className="main-container">
                 <form action="#" id="form-container">
-                    <legend>Register-se</legend>
+                    <legend>Registre-se</legend>
 
                     <label htmlFor="username" className="form-content">Username:</label>
                     <input type="text" name="username" className="form-content" value={newUser.username} onChange={handleInputChange} required/>
