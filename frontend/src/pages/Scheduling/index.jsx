@@ -35,6 +35,7 @@ export default function Scheduling() {
     function createBooking(e){
         e.preventDefault();
         if(actionType === 'scheduling/addBooking'){
+            newBooking.idProduct = id;
             dispatch(addBookingServer(newBooking));
             alert("Reserva criada com sucesso!");
         } else {
