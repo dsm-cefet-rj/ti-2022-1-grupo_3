@@ -2,6 +2,7 @@ require("dotenv").config();
 var cookieParser = require("cookie-parser");
 var cors = require("cors");
 var express = require("express");
+var helmet = require("helmet");
 var logger = require("morgan");
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -27,9 +28,9 @@ mongoose
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(helmet());
 app.use(cors());
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, "public")));
 
