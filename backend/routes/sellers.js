@@ -1,23 +1,24 @@
 var express = require('express');
 var router = express.Router();
-var sellerModel = require('../models/sellers');
-const bodyParser = require('body-parser');
+var userModel = require('../models/users');
+var bodyParser = require('body-parser');
+var { verifyUser } = require("../middlewares/auth");
 
 router.use(bodyParser.json())
 
 /* GET (read) sellers listing. */
-router.route("/").get(async (req, res, next) => {
+router.route("/").get(verifyUser, async (req, res, next) => {
   try {
-    const seller = await sellerModel.find();
+    const seller = await userModel.find({ isSeller: true });
     res.status(200).json(seller || {});
   } catch (err) {
     res.status(404).json({});
   }
 });
 
-router.route("/:id").get(async (req, res, next) => {
+router.route("/:id").get(verifyUser, async (req, res, next) => {
   try {
-    const seller = await sellerModel.findById(req.params.id);
+    const seller = await userModel.findById(req.params.id);
     res.status(200).json(seller || {});
   } catch (err) {
     res.status(404).json({});
@@ -25,8 +26,8 @@ router.route("/:id").get(async (req, res, next) => {
 });
 
 /* POST (create) seller. */
-router.route("/").post(async (req, res, next) => {
-  let newSeller = new sellerModel({...req.body});
+router.route("/").post(verifyUser, async (req, res, next) => {
+  let newSeller = new userModel({...req.body, isSeller: true});
 
   try {
     const response = await newSeller.save();
@@ -37,11 +38,12 @@ router.route("/").post(async (req, res, next) => {
 });
 
 /* PUT (update) seller. */
-router.route("/:id").put(async (req, res, next) => {
+router.route("/:id").put(verifyUser, async (req, res, next) => {
 	try {
-		const response = await sellerModel
+		const response = await userModel
 			.findByIdAndUpdate(req.params.id, {
-				...req.body
+				...req.body,
+        isSeller: true
 			});
 
 		res.status(200).json(response);
@@ -51,9 +53,9 @@ router.route("/:id").put(async (req, res, next) => {
 });
 
 /* DELETE (delete) seller. */
-router.route("/:id").delete(async (req, res, next) => {
+router.route("/:id").delete(verifyUser, async (req, res, next) => {
   try {
-    const response = await sellerModel.findByIdAndRemove(req.params.id);
+    const response = await userModel.findByIdAndRemove(req.params.id);
     res.status(200).json(req.params.id);
   } catch (err) {
     res.status(404).json({});

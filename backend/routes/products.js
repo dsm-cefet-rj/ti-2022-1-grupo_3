@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var productModel = require('../models/products');
-const bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
+var { verifyUser } = require("../middlewares/auth");
 
 router.use(bodyParser.json())
 
 /* GET (read) products listing. */
-router.route("/").get(async (req, res, next) => {
+router.route("/").get(verifyUser, async (req, res, next) => {
   try {
     const product = await productModel.find();
     res.status(200).json(product || {});
@@ -15,7 +16,7 @@ router.route("/").get(async (req, res, next) => {
   }
 });
 
-router.route("/:id").get(async (req, res, next) => {
+router.route("/:id").get(verifyUser, async (req, res, next) => {
   try {
     const product = await productModel.findById(req.params.id);
     res.status(200).json(product || {});
@@ -25,7 +26,7 @@ router.route("/:id").get(async (req, res, next) => {
 });
 
 /* POST (create) product. */
-router.route("/").post(async (req, res, next) => {
+router.route("/").post(verifyUser, async (req, res, next) => {
   let newproduct = new productModel({...req.body});
 
   try {
@@ -38,7 +39,7 @@ router.route("/").post(async (req, res, next) => {
 });
 
 /* PUT (update) product. */
-router.route("/:id").put(async (req, res, next) => {
+router.route("/:id").put(verifyUser, async (req, res, next) => {
 	try {
 		const response = await productModel
 			.findByIdAndUpdate(req.params.id, {
@@ -52,7 +53,7 @@ router.route("/:id").put(async (req, res, next) => {
 });
 
 /* DELETE (delete) product. */
-router.route("/:id").delete(async (req, res, next) => {
+router.route("/:id").delete(verifyUser, async (req, res, next) => {
   try {
     const response = await productModel.findByIdAndRemove(req.params.id);
     res.status(200).json(req.params.id);

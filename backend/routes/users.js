@@ -1,9 +1,9 @@
-const express = require("express");
-const passport = require("passport");
+var express = require("express");
+var passport = require("passport");
+var bodyParser = require('body-parser');
 var router = express.Router();
 var authenticate = require("../middlewares/auth");
-const userModel = require("../models/users");
-const bodyParser = require('body-parser');
+var userModel = require("../models/users");
 
 router.use(bodyParser.json())
 
