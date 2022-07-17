@@ -1,52 +1,69 @@
-import { createAsyncThunk, createEntityAdapter, createSlice } from "@reduxjs/toolkit";
-import { httpGet, httpPost, httpDelete, httpPut } from '../utils';
-
-const usersAdapter = createEntityAdapter();
-
-const initialState = usersAdapter.getInitialState({
-    status: "not_loaded",
-    error: null,
-});
+import { createAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { httpPost } from '../utils';
 
 const baseUrl = 'http://localhost:3004';
 
-export const fetchUsers = createAsyncThunk("database/fetchUsers", async () => {
-    return await httpGet(`${baseUrl}/users`);
+export const login = createAsyncThunk("user/login", async (credentials) => {
+    return await httpPost(`${baseUrl}/users/login`, credentials);
 });
 
-export const deleteUsersServer = createAsyncThunk("database/deleteUsersServer", async (idUser) => {
-    await httpDelete(`${baseUrl}/users/${idUser}`);
-    return idUser;
+export const signUp = createAsyncThunk("user/signup", async (credentials) => {
+    return await httpPost(`${baseUrl}/users/signup`, credentials);
 });
 
-export const addUsersServer = createAsyncThunk("database/addUsersServer", async (user) => {
-    return await httpPost(`${baseUrl}/users`, user);
-});
-
-export const updateUsersServer = createAsyncThunk("database/updateUsersServer", async (user) => {
-    return await httpPut(`${baseUrl}/users/${user.id}`, user);
-});
-
-export const usersSlice = createSlice({
-    name: "users",
-    initialState: initialState,
-    extraReducers: {
-        [fetchUsers.pending]: (state, action) => { state.status = "loading";},
-        [fetchUsers.fulfilled]: (state, action) => {state.status = "loaded"; usersAdapter.setAll(state, action.payload);},
-        [fetchUsers.rejected]: (state, action) => {state.status = "failed"; state.error = action.error.message;},
-        [deleteUsersServer.pending]: (state, action) => {state.status = "loading";},
-        [addUsersServer.pending]: (state, action) => {state.status = "loading";},
-        [updateUsersServer.pending]: (state, action) => {state.status = "loading";},
-        [deleteUsersServer.fulfilled]: (state, { payload: id }) => {state.status = "deleted";usersAdapter.removeOne(state, id);},
-        [addUsersServer.fulfilled]: (state, action) => {state.status = "saved";usersAdapter.addOne(state, action.payload);},
-        [updateUsersServer.fulfilled]: (state, action) => {state.status = "saved";usersAdapter.upsertOne(state, action.payload);},
+const initialState = {
+    token: "",
+    userInfo: {
+        email: "",
+        isSeller: false
     },
-  });
+    count: 0,
+    profileStats: {
+        name: "Nome do Cliente",
+        username: "teste",
+        pic: process.env.PUBLIC_URL + "/static/media/exemplo1.7ca3377e5e8501c6a6bd.jpeg",
+        photoCount: 2,
+        stars: 4.5,
+        followers: 500, 
+        following: 500
+    }
+};
 
-  export default usersSlice.reducer;
+export const logout = createAction('user/logout');
 
-  export const {
-    selectAll: selectAllUsers,
-    selectById: selectUsersById,
-    selectIds: selectUsersIds,
-  } = usersAdapter.getSelectors((state) => state.users);
+const userSlice = createSlice({
+    name: 'user',
+    initialState,
+    reducers: {
+        logout: () => initialState,
+        testing: (state) => {
+            const token = state.token + 'a';
+            const newState = {...initialState, token };
+            return newState;
+        },
+    },
+    extraReducers: {
+        [login.pending]: (state) => { state.status = "loading"; },
+        [login.fulfilled]: (state, action) => {
+            const { token, name, email, profilePicture: pic, isSeller, username } = action.payload;
+            return { 
+                ...state,
+                status: "loaded",
+                token,
+                userInfo: { ...state.userInfo, email, isSeller, name }, 
+                profileStats: {...state.profileStats, pic, username}
+            };
+        },
+        [login.rejected]: (state, action) => {
+            state.status = "failed";
+            state.error = action.error.message;
+        },
+        [signUp.pending]: (state) => { state.status = "loading"; },
+        [signUp.rejected]: (state, action) => {
+            state.status = "failed";
+            state.error = action.error.message;
+        },
+    }
+})
+
+export default userSlice.reducer

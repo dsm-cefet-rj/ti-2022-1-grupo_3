@@ -6,13 +6,6 @@ export default function Footer(props) {
     return (
         <>
             <footer id="footer-container">
-                <Link to="/login" id="sign-in"> {/* Fazer página de login*/}
-                    <p>Login</p>
-                </Link>
-                <Link to="/userRegister" id="sign-in"> {/* Fazer página de login*/}
-                    <p>Registra-se</p>
-                </Link>
-
                 <div id="social">
                     <Link to="#"><img src={process.env.PUBLIC_URL + '/facebook.svg'} alt="Logo do Facebook"/></Link>
                     <Link to="#"><img src={process.env.PUBLIC_URL + '/instagram.svg'} alt="Logo do Instagram"/></Link>

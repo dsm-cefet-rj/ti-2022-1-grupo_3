@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import { GuestRoute as G, UserRoute as P } from './routes/AuthRoutes';
+
 import CreatePublication from "./pages/CreatePublication";
 import Home from "./pages/Home";
 import ProfileCabelereiro from "./pages/ProfileCabelereiro";
@@ -20,20 +22,20 @@ function App() {
     <>
         <Router>
           <Routes>
-            <Route path="/registerCabeleireiro" element={<RegisterCabeleireiro/>}/>
-            <Route path="/editCabeleireiro/:id" element={<EditCabeleireiro/>}/>
+            <Route path="/registerCabeleireiro" element={<P><RegisterCabeleireiro/></P>}/>
+            <Route path="/editCabeleireiro/:id" element={<P><EditCabeleireiro/></P>}/>
 
-            <Route path="/me" element={<ProfileUser/>}/>
-            <Route path="/cabeleireiro/:id" element={<ProfileCabelereiro/>}/>
-            <Route path="/cabeleireiros" element={<Cabeleireiros/>}/>
+            <Route path="/me" element={<P><ProfileUser/></P>}/>
+            <Route path="/cabeleireiro/:id" element={<P><ProfileCabelereiro/></P>}/>
+            <Route path="/cabeleireiros" element={<P><Cabeleireiros/></P>}/>
 
-            <Route path="/" exact element={<Home/>}/>
-            <Route path="/newPublication" element={<CreatePublication/>}/>
-            <Route exact path="/EditPublication/:id" element={<EditPublication/>}/>
+            <Route path="/" exact element={<P><Home/></P>}/>
+            <Route path="/newPublication" element={<P><CreatePublication/></P>}/>
+            <Route exact path="/EditPublication/:id" element={<P><EditPublication/></P>}/>
             
-            <Route path="/scheduling/:id" element={<Scheduling/>}/>
-            <Route path="/schedule" element={<Schedule/>}/>
-            <Route path="/editSchedule/:id" element={<EditSchedule/>}/>
+            <Route path="/scheduling/:id" element={<P><Scheduling/></P>}/>
+            <Route path="/schedule" element={<P><Schedule/></P>}/>
+            <Route path="/editSchedule/:id" element={<P><EditSchedule/></P>}/>
 
             <Route path="/login" element={<Login/>}/>
             <Route path="/userRegister" element={<UserRegister/>}/>

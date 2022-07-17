@@ -1,27 +1,16 @@
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { addUsersServer, selectUsersById } from "../../reducers/UserSlice";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { signUp } from "../../reducers/UserSlice";
 
 import "../../styles/Register.css";
 
-export default function UserRegister() {
-    let { id } = useParams();
-
-    const userFound = useSelector((state) => selectUsersById(state, id));
-    const [newUser, setNewUser] = useState(id ? userFound ?? {} : {});
-
-    const [actionType] = useState(
-        id ?
-            userFound
-            ? "UserRegister/updateUser"
-            : "UserRegister/addUser"
-            : "UserRegister/addUser"
-    );
-
+export default function UserRegister() {    
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const [newUser, setNewUser] = useState({ name: "", username: "", email: "", password: "", id: "" });
 
     function handleInputChange(e){
         setNewUser({...newUser, [e.target.name]: e.target.value})
@@ -29,9 +18,9 @@ export default function UserRegister() {
 
     function createUser(e) {
         e.preventDefault();
-        dispatch(addUsersServer(newUser));
-        alert("Cadastrado com sucesso!");
-        navigate("/");
+        dispatch(signUp({...newUser, isSeller: true}));
+        alert("Cadastrado com sucesso! Faça seu login");
+        navigate(`/login?username=${newUser.username}`);
     }
 
     function cancelButton(e) {
@@ -44,6 +33,8 @@ export default function UserRegister() {
             <div className="main-container">
                 <form action="#" id="form-container">
                     <legend>Registre-se</legend>
+                    <label htmlFor="username" className="form-content">Nome:</label>
+                    <input type="text" name="username" className="form-content" value={newUser.username} onChange={handleInputChange} required/>
 
                     <label htmlFor="username" className="form-content">Username:</label>
                     <input type="text" name="username" className="form-content" value={newUser.username} onChange={handleInputChange} required/>

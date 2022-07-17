@@ -1,5 +1,9 @@
+import { store } from './configureStore';
+import { logout } from "./reducers/UserSlice";
+
 async function client(endpoint, { body, ...customConfig } = {}) {
     const headers = { 'Content-Type': 'application/json' }
+    const { user: { token } } = store.getState();
 
     const config = {
       method: body ? 'POST' : 'GET',
@@ -7,22 +11,26 @@ async function client(endpoint, { body, ...customConfig } = {}) {
       headers: {
         ...headers,
         ...customConfig.headers,
-      },
+        'Authorization': token && `Bearer ${token}`
+      }
     }
 
     if (body) {
       config.body = JSON.stringify(body)
     }
 
-    let data
+    let data, response
     try {
-      const response = await window.fetch(endpoint, config)
+      response = await window.fetch(endpoint, config)
       data = await response.json()
       if (response.ok) {
         return data
       }
       throw new Error(response.statusText)
     } catch (err) {
+      if (response.status == 401) {
+        store.dispatch(logout());
+      }
       return Promise.reject(err.message ? err.message : data)
     }
   }

@@ -10,16 +10,17 @@ router.use(bodyParser.json())
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (_err, user, info) => {
     if (!user) {
-      return res.status(401).json({message: 'Could not log in with provided credentials!', err: {...info}});
+      return res.status(404).json({message: 'Could not log in with provided credentials!', err: info.message});
     }
     
     req.logIn(user, (err) => {
       if (err) {
-        return res.status(401).json({message: 'Could not log in with provided credentials!', err: err.message});          
+        return res.status(404).json({message: 'Could not log in with provided credentials!', err: err.message});          
       }
 
       const token = authenticate.getToken({_id: req.user._id});
-      res.status(200).json({ id: req.user._id, token: token});
+      const { name, email, username, profilePicture, isSeller } = req.user._doc;
+      res.status(200).json({ name, email, username, profilePicture, isSeller, token: token});
     }); 
   }) (req, res, next);
 });

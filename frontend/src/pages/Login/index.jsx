@@ -1,24 +1,39 @@
-import { Link } from 'react-router-dom';
-import { React } from "react";
-import { useNavigate, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectAllUsers } from "../../reducers/UserSlice";
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import React, { useMemo, useState } from "react";
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from "../../reducers/UserSlice";
 
 import "../../styles/Register.css";
 
+function useQuery() {
+    const { search } = useLocation();
+    return useMemo(() => new URLSearchParams(search), [search]);
+}
+
 export default function Login() {
+    const username = useQuery().get('username') || "";
+    const error = useQuery().get('error') || "";
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    function loginUser() {
-        alert("Autenticado com sucesso!");
-        navigate("/");
+    const [credentials, setCredentials] = useState({ username, password: ""});
+
+    function handleInputChange(e){
+        setCredentials({...credentials, [e.target.name]: e.target.value})
     }
 
-    function cancelButton(e) {
+    async function loginUser(e) {
         e.preventDefault();
-        navigate("/");
+        const response = await dispatch(login(credentials));
+        
+        if (response.type !== 'user/login/rejected') {
+            navigate('/');
+            return;
+        }
+
+        navigate('/login?error=Login+ou+senha+inválidos');
     }
 
     return(
@@ -26,25 +41,20 @@ export default function Login() {
             <div className="main-container">
                 <form id="form-container" >
                     <legend>Login</legend>
+                    <p style={{ visibility: error ? 'visible' : 'hidden', color: 'red' }}>{error}</p>
 
                     <label htmlFor="username" className="form-content">Username:</label>
-                    <input type="text" name="username" className="form-content" required/>
-
-                    <label htmlFor="email" className="form-content">E-mail:</label>
-                    <input type="text" name="email" className="form-content" required/>
+                    <input type="text" name="username" value={credentials.username} onChange={handleInputChange} className="form-content" required/>
 
                     <label htmlFor="password" className="form-content">Senha:</label>
-                    <input type="password" name="password" className="form-content" required/>
+                    <input type="password" name="password" value={credentials.password} onChange={handleInputChange} className="form-content" required/>
 
                     <div className="button-container">
-                        <button type="submit" id="submit" onClick={(e)=>cancelButton(e)}>Cancelar</button>
                         <button type="submit" id="submit" onClick={(e)=>loginUser(e)}>Login</button>
                     </div>
 
                     <br></br>
-                    <a>
-                        <Link to="/userRegister">Não possuo login.</Link>
-                    </a>
+                    <Link to="/userRegister">Não possuo login.</Link>
                 </form>
             </div>
         </>

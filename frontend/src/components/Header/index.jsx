@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { IoClose, IoPersonOutline, IoCutOutline, IoSettingsOutline, IoMenu, IoSearch } from "react-icons/io5";
+import { IoClose, IoPersonOutline, IoCutOutline, IoSettingsOutline, IoMenu, IoSearch, IoCalendarOutline, IoExitOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { store } from "../../configureStore";
+import { logout } from "../../reducers/UserSlice";
 
 import "../../styles/Header.css";
 
@@ -54,17 +56,17 @@ export default function Header(props) {
               </li>
 
               <li>
-                <Link to="/registerCabeleireiro">
-                  <IoSettingsOutline className="icon" />
-                  <span className="nav-link">Novo Cabeleireiro</span>
+                <Link to="/schedule">
+                  <IoCalendarOutline className="icon" />
+                  <span className="nav-link">Agendamentos</span>
                 </Link>
               </li>
 
               <li>
-                <Link to="/schedule">
-                  <IoSettingsOutline className="icon" />
-                  <span className="nav-link">Agendamento</span>
-                </Link>
+                <a onClick={() => store.dispatch(logout())}>
+                  <IoExitOutline className="icon" />
+                  <span className="nav-link">Sair</span>
+                </a>
               </li>
             </ul>
 

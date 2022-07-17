@@ -26,10 +26,8 @@ export default function Home(props) {
     };
 
     useEffect(() => {
-        if(status === 'not loaded'){
-            dispatch(fetchProducts())
-        }else if(status === 'not loaded'){
-            setTimeout(() => dispatch(fetchProducts()), 5000)
+        if(status !== 'loaded'){
+            dispatch(fetchProducts());
         }
     }, [status, dispatch])
   
