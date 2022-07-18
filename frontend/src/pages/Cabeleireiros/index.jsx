@@ -23,10 +23,8 @@ export default function Cabeleireiros(props) {
     };
 
     useEffect(() => {
-        if(status === 'not loaded'){
-            dispatch(fetchSellers())
-        }else if(status === 'not loaded'){
-            setTimeout(() => dispatch(fetchSellers()), 5000)
+        if(status !== 'loaded'){
+            dispatch(fetchSellers());
         }
     }, [status, dispatch])
 
