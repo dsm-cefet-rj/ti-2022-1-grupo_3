@@ -30,7 +30,7 @@ export default function ProfileCabelereiro(props) {
         return (
           <>
             {product.status !== "Agendado" && (
-              <Card product={product} key={product.name} />
+              <Card product={product} key={product.id} />
             )}
           </>
         );

@@ -19,7 +19,7 @@ export default function Home(props) {
         return (
             <>
                 {product.status !== "Agendado" && (
-                    <Card product={product} key={product.name} />
+                    <Card product={product} key={product.id} />
                 )}
             </>
         );
