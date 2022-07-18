@@ -36,11 +36,6 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         logout: () => initialState,
-        testing: (state) => {
-            const token = state.token + 'a';
-            const newState = {...initialState, token };
-            return newState;
-        },
     },
     extraReducers: {
         [login.pending]: (state) => { state.status = "loading"; },
