@@ -12,11 +12,6 @@ const baseUrl = 'http://localhost:3004';
 
 export const fetchBookings = createAsyncThunk('database/fetchBookings', async() =>{
     return await httpGet(`${baseUrl}/bookings`)
-}, {
-    condition: () => {
-      const stored = localStorage.getItem('persist:bookings');
-      return !stored;
-    },
 });
 
 export const addBookingServer = createAsyncThunk('database/addBookingServer', async (booking)=>{

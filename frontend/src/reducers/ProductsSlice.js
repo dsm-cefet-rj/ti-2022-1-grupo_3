@@ -12,11 +12,6 @@ const baseUrl = 'http://localhost:3004';
 
 export const fetchProducts = createAsyncThunk('database/fetchProducts', async() => {
     return await httpGet(`${baseUrl}/products`);
-}, {
-    condition: () => {
-      const stored = localStorage.getItem('persist:products');
-      return !stored;
-    },
 });
 
 export const deleteProductsServer = createAsyncThunk('database/deleteProductsServer', async(idProduct) => {

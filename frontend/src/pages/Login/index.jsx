@@ -4,6 +4,9 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from "../../reducers/UserSlice";
 
+import { fetchBookings } from '../../reducers/BookingsSlice';
+import { fetchSellers } from '../../reducers/SellersSlice';
+import { fetchProducts } from '../../reducers/ProductsSlice';
 import "../../styles/Register.css";
 
 function useQuery() {
@@ -29,6 +32,9 @@ export default function Login() {
         const response = await dispatch(login(credentials));
         
         if (response.type !== 'user/login/rejected') {
+            dispatch(fetchBookings());
+            dispatch(fetchSellers());
+            dispatch(fetchProducts());
             navigate('/');
             return;
         }
