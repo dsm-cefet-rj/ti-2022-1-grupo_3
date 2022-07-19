@@ -43,7 +43,7 @@ export default function Publication() {
     }
    
     const product = useSelector(state => selectProductsById(state, id));
-    const seller = useSelector(state=>selectSellersById(state,product.idSeller))
+    const seller = useSelector(state=>selectSellersById(state, product.idSeller))
     const status = useSelector(state=>state.products.status);
     const error = useSelector(state=>state.products.error);
 
@@ -82,23 +82,25 @@ export default function Publication() {
 
                 <div className="column-left">
 
-                <table className="table-editschedule">
-                        <tr>
-                            <td><p><b>Título: </b></p></td>
-                            <td><p><span>{product.name}</span></p></td>
-                            <td><input type="text" name="name" value={newProduct.name} onChange={handleInputChange} required/></td>
-                        </tr>
+                    <table className="table-editschedule">
+                        <tbody>
+                            <tr>
+                                <td><p><b>Título: </b></p></td>
+                                <td><p><span>{product.name}</span></p></td>
+                                <td><input type="text" name="name" value={newProduct.name} onChange={handleInputChange} required/></td>
+                            </tr>
 
-                        <tr>
-                            <td><p><b>R$ </b></p></td>
-                            <td><p><span>{product.price}</span></p></td>
-                            <input type="number" name="price" value={newProduct.price} onChange={handleInputChange} required/>
-                        </tr>
+                            <tr>
+                                <td><p><b>R$ </b></p></td>
+                                <td><p><span>{product.price}</span></p></td>
+                                <td><input type="number" name="price" value={newProduct.price} onChange={handleInputChange} required/></td>
+                            </tr>
 
-                        <tr>
-                            <td><p><b>Cabeleireiro: </b></p></td>
-                            <td><p><span>{seller.name}</span></p></td>
-                        </tr>
+                            <tr>
+                                <td><p><b>Cabeleireiro: </b></p></td>
+                                <td><p><span>{product.idSeller}</span></p></td>
+                            </tr>
+                        </tbody>
                     </table>
                     
                     <div className="buttom-cardschedule">
