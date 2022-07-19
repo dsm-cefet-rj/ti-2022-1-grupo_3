@@ -16,11 +16,9 @@ export default function ProfileUser(props) {
     const products = useSelector(selectAllProducts)
     const renderProduct = (product) => {
         return (
-          <>
-            {product.status !== "Agendado" && (
+            product.status !== "Agendado" && (
               <Card product={product} key={product.id} />
-            )}
-          </>
+            )
         );
     };
 

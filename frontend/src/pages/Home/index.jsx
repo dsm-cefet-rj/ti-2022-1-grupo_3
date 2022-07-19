@@ -17,11 +17,9 @@ export default function Home(props) {
 
     const renderProduct = (product) => {
         return (
-            <>
-                {product.status !== "Agendado" && (
-                    <Card product={product} key={product.id} />
-                )}
-            </>
+            product.status !== "Agendado" && (
+                <Card product={product} key={product.id} />
+            )
         );
     };
 

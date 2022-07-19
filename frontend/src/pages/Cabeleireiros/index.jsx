@@ -16,9 +16,7 @@ export default function Cabeleireiros(props) {
 
     const renderSeller = (seller) => {
         return (
-            <>
-                <CardCabeleireiro sellers={seller} key={seller.id} />
-            </>
+            <CardCabeleireiro sellers={seller} key={seller.id} />
         );
     };
 

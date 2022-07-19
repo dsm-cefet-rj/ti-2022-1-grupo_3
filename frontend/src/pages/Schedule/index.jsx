@@ -20,11 +20,9 @@ export default function Schedule() {
     
     const renderBooking = (booking) => {
         return (
-            <>
-                {booking.status !== "Agendado" && (
-                    <CardSchedule booking={booking} key={booking.id} />
-                )}
-            </>
+            booking.status !== "Agendado" && (
+                <CardSchedule booking={booking} key={booking.id} />
+            )
         );
     };
     
