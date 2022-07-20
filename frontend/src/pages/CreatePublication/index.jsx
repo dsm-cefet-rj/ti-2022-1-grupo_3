@@ -37,7 +37,6 @@ export default function CreatePublication() {
         e.preventDefault();
         
         if(actionType === 'formPublication/addProduct'){
-            newProduct.images = [defaultProfile];
             newProduct.idSeller = '62bca62f911d3857ecc5b1a9';
             dispatch(addProductsServer(newProduct));
             alert("Produto Cadastrado com sucesso!");
@@ -64,8 +63,8 @@ export default function CreatePublication() {
                     <label htmlFor="price" className="form-content">Preço:</label>
                     <input type="number" name="price" className="form-content" value={newProduct.price} onChange={handleInputChange} required/>
 
-                    <label htmlFor="images" className="form-content">Image:</label>
-                    <input type="file" name="images" className="form-content" value={newProduct.images} onChange={handleInputChange} required/>
+                    <label htmlFor="images" className="form-content">URL da Imagem:</label>
+                    <input type="text" name="images" className="form-content" placeholder="URL" value={newProduct.images} onChange={handleInputChange} required/>
 
                     <div className="button-container">
                         <button type="submit" id="submit" onClick={(e)=>cancelButton(e)}>Cancelar</button>
