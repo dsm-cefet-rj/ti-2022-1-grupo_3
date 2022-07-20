@@ -22,6 +22,7 @@ export default function Login() {
     const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({ username, password: ""});
+    const [isDisabled, setDisabled] = useState(false);
 
     function handleInputChange(e){
         setCredentials({...credentials, [e.target.name]: e.target.value})
@@ -29,6 +30,8 @@ export default function Login() {
 
     async function loginUser(e) {
         e.preventDefault();
+        setDisabled(true);
+
         const response = await dispatch(login(credentials));
         
         if (response.type !== 'user/login/rejected') {
@@ -40,6 +43,7 @@ export default function Login() {
         }
 
         navigate('/login?error=Login+ou+senha+inválidos');
+        setDisabled(false);
     }
 
     return(
@@ -56,7 +60,7 @@ export default function Login() {
                     <input type="password" name="password" value={credentials.password} onChange={handleInputChange} className="form-content" required/>
 
                     <div className="button-container">
-                        <button type="submit" id="submit" onClick={(e)=>loginUser(e)}>Login</button>
+                        <button type="submit" id="submit" onClick={(e)=>loginUser(e)} disabled={isDisabled}>Login</button>
                     </div>
 
                     <br></br>

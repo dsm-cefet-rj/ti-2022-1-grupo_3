@@ -11,17 +11,19 @@ export default function UserRegister({ label, ...rest }) {
     const navigate = useNavigate();
 
     const [newUser, setNewUser] = useState({ name: "", username: "", email: "", password: "", id: "" });
+    const [isDisabled, setDisabled] = useState(false);
 
     function handleInputChange(e){
         setNewUser({...newUser, [e.target.name]: e.target.value})
     }
 
-    function createUser(e) {
+    async function createUser(e) {
         e.preventDefault();
-        const response = await dispatch(login(credentials));
+        setDisabled(true);
+
+        const response = await dispatch(signUp({...newUser, ...rest}));
         
         if (response.type !== 'user/signUp/rejected') {
-            dispatch(signUp({...newUser, ...rest}));
             alert("Cadastrado com sucesso! Faça seu login");
             navigate(`/login?username=${newUser.username}`);
 
@@ -29,6 +31,7 @@ export default function UserRegister({ label, ...rest }) {
         }
 
         alert("Erro no cadastro! Garanta que todas as informações estejam corretas");
+        setDisabled(false);
     }
 
     return(
@@ -49,7 +52,7 @@ export default function UserRegister({ label, ...rest }) {
                     <input type="password" name="password" className="form-content" value={newUser.password} onChange={handleInputChange} required/>
 
                     <div className="button-container">
-                        <button type="submit" id="submit" onClick={(e)=>createUser(e)}>Cadastrar</button>
+                        <button type="submit" id="submit" onClick={(e)=>createUser(e)} disabled={isDisabled}>Cadastrar</button>
                     </div>
 
                     <br></br>
