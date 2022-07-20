@@ -35,9 +35,9 @@ export default function Login() {
         const response = await dispatch(login(credentials));
         
         if (response.type !== 'user/login/rejected') {
-            dispatch(fetchBookings());
             dispatch(fetchSellers());
             dispatch(fetchProducts());
+            dispatch(fetchBookings());
             navigate('/');
             return;
         }

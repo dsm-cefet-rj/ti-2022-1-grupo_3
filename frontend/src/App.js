@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { UserRoute as P } from './routes/AuthRoutes';
+import FetchData from './fetchData';
 
 import CreatePublication from "./pages/CreatePublication";
 import Home from "./pages/Home";
@@ -19,6 +20,7 @@ import Cabeleireiros from "./pages/Cabeleireiros";
 function App() {
   return (
     <>
+        <FetchData/>
         <Router>
           <Routes>
             <Route path="/editCabeleireiro/:id" element={<P><EditCabeleireiro/></P>}/>
