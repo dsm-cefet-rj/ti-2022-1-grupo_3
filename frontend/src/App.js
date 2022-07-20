@@ -1,13 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import { GuestRoute as G, UserRoute as P } from './routes/AuthRoutes';
+import { UserRoute as P } from './routes/AuthRoutes';
 
 import CreatePublication from "./pages/CreatePublication";
 import Home from "./pages/Home";
 import ProfileCabelereiro from "./pages/ProfileCabelereiro";
 import ProfileUser from "./pages/ProfileUser";
-import RegisterCabeleireiro from "./pages/RegisterCabeleireiro";
 import EditCabeleireiro from "./pages/EditCabeleireiro";
 import Schedule from "./pages/Schedule";
 import Scheduling from "./pages/Scheduling";
@@ -22,7 +21,6 @@ function App() {
     <>
         <Router>
           <Routes>
-            <Route path="/registerCabeleireiro" element={<P><RegisterCabeleireiro/></P>}/>
             <Route path="/editCabeleireiro/:id" element={<P><EditCabeleireiro/></P>}/>
 
             <Route path="/me" element={<P><ProfileUser/></P>}/>
@@ -38,7 +36,8 @@ function App() {
             <Route path="/editSchedule/:id" element={<P><EditSchedule/></P>}/>
 
             <Route path="/login" element={<Login/>}/>
-            <Route path="/userRegister" element={<UserRegister/>}/>
+            <Route path="/userRegister" element={<UserRegister isSeller={false} label="Registre-se"/>}/>
+            <Route path="/registerCabeleireiro" element={<UserRegister isSeller label="Cadastrar Cabeleireiro"/>}/>
           </Routes>
         </Router>
     </>

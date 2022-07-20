@@ -6,7 +6,7 @@ import { signUp } from "../../reducers/UserSlice";
 
 import "../../styles/Register.css";
 
-export default function UserRegister() {    
+export default function UserRegister({ label, ...rest }) {    
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -18,23 +18,26 @@ export default function UserRegister() {
 
     function createUser(e) {
         e.preventDefault();
-        dispatch(signUp({...newUser, isSeller: true}));
-        alert("Cadastrado com sucesso! Faça seu login");
-        navigate(`/login?username=${newUser.username}`);
-    }
+        const response = await dispatch(login(credentials));
+        
+        if (response.type !== 'user/signUp/rejected') {
+            dispatch(signUp({...newUser, ...rest}));
+            alert("Cadastrado com sucesso! Faça seu login");
+            navigate(`/login?username=${newUser.username}`);
 
-    function cancelButton(e) {
-        e.preventDefault();
-        navigate("/");
+            return;
+        }
+
+        alert("Erro no cadastro! Garanta que todas as informações estejam corretas");
     }
 
     return(
         <>
             <div className="main-container">
                 <form action="#" id="form-container">
-                    <legend>Registre-se</legend>
+                    <legend>{label}</legend>
                     <label htmlFor="username" className="form-content">Nome:</label>
-                    <input type="text" name="username" className="form-content" value={newUser.username} onChange={handleInputChange} required/>
+                    <input type="text" name="name" className="form-content" value={newUser.name} onChange={handleInputChange} required/>
 
                     <label htmlFor="username" className="form-content">Username:</label>
                     <input type="text" name="username" className="form-content" value={newUser.username} onChange={handleInputChange} required/>
@@ -46,14 +49,11 @@ export default function UserRegister() {
                     <input type="password" name="password" className="form-content" value={newUser.password} onChange={handleInputChange} required/>
 
                     <div className="button-container">
-                        <button type="submit" id="submit" onClick={(e)=>cancelButton(e)}>Cancelar</button>
                         <button type="submit" id="submit" onClick={(e)=>createUser(e)}>Cadastrar</button>
                     </div>
 
                     <br></br>
-                    <a>
-                        <Link to="/login">Já possuo login.</Link>
-                    </a>
+                    <Link to="/login">Já possuo login.</Link>
                 </form>
             </div>
         </>
