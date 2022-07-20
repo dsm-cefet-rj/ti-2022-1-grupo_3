@@ -16,6 +16,7 @@ import EditPublication from './pages/EditPublication';
 import Login from "./pages/Login";
 import UserRegister from "./pages/UserRegister";
 import Cabeleireiros from "./pages/Cabeleireiros";
+import RegisterCabeleireiro from "./pages/RegisterCabeleireiro";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <FetchData/>
         <Router>
           <Routes>
+            <Route path="/registerCabeleireiro" element={<RegisterCabeleireiro/>}/>
             <Route path="/editCabeleireiro/:id" element={<P><EditCabeleireiro/></P>}/>
 
             <Route path="/me" element={<P><ProfileUser/></P>}/>

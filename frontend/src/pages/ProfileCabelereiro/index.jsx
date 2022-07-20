@@ -46,10 +46,7 @@ export default function ProfileCabelereiro(props) {
             <header className="user-profile-container">
                 <div className="user-profile">
                     <div className="user-pp-wrapper">
-                        <img
-                            src={hairstylistPicture}
-                            alt="Foto de perfil do cabelereiro"
-                        />
+                        <img src={sellers.images} alt="Foto Cabeleireiro" id={sellers.id}/>
                     </div>
 
                     <h2 className="user-name">{sellers.name}</h2>

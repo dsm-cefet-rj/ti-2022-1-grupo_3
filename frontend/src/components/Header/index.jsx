@@ -35,9 +35,9 @@ export default function Header(props) {
               </div>
 
               <li>
-                <Link to="/me">
+                <Link to="/registerCabeleireiro">
                   <IoPersonOutline className="icon" />
-                  <span className="nav-link"></span>
+                  <span className="nav-link">Junte-se</span>
                 </Link>
               </li>
 
