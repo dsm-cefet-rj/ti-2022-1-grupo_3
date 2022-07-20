@@ -37,7 +37,7 @@ export default function Header(props) {
               <li>
                 <Link to="/me">
                   <IoPersonOutline className="icon" />
-                  <span className="nav-link">Seu Perfil</span>
+                  <span className="nav-link"></span>
                 </Link>
               </li>
 
