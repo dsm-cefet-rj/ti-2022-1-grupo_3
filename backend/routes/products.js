@@ -9,7 +9,11 @@ router.use(bodyParser.json())
 /* GET (read) products listing. */
 router.route("/").get(verifyUser, async (req, res, next) => {
   try {
-    const product = await productModel.find();
+    const product = await productModel.find().populate({
+      path: 'idSeller',
+      select: 'id'
+    });
+
     res.status(200).json(product || {});
   } catch (err) {
     res.status(404).json({});
@@ -18,7 +22,11 @@ router.route("/").get(verifyUser, async (req, res, next) => {
 
 router.route("/:id").get(verifyUser, async (req, res, next) => {
   try {
-    const product = await productModel.findById(req.params.id);
+    const product = await productModel.findById(req.params.id).populate({
+      path: 'idSeller',
+      select: 'id'
+    });
+
     res.status(200).json(product || {});
   } catch (err) {
     res.status(404).json({});

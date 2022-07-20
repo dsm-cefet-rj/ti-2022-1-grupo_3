@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var bookingModel = require('../models/bookings');
+var sellersModel = require('../models/sellers');
+var productsModel = require('../models/products');
 var bodyParser = require('body-parser');
 var { verifyUser } = require("../middlewares/auth");
 
@@ -9,7 +11,15 @@ router.use(bodyParser.json())
 /* GET (read) bookings listing. */
 router.route("/").get(verifyUser, async (req, res, next) => {
   try {
-    const booking = await bookingModel.find();
+    let booking = await bookingModel.find().populate({
+      path: 'idProduct',
+      select: 'idSeller'
+    });
+
+    booking = booking.filter((b) => {
+      return b.idProduct.idSeller == req.user.id;
+    });
+
     res.status(200).json(booking || {});
   } catch (err) {
     res.status(404).json({});
@@ -18,7 +28,11 @@ router.route("/").get(verifyUser, async (req, res, next) => {
 
 router.route("/:id").get(verifyUser, async (req, res, next) => {
   try {
-    const booking = await bookingModel.findById(req.params.id);
+    const booking = await bookingModel.findById(req.params.id).populate({
+      path: 'idProduct',
+      select: 'idSeller'
+    });
+
     res.status(200).json(booking || {});
   } catch (err) {
     res.status(404).json({});
@@ -27,10 +41,16 @@ router.route("/:id").get(verifyUser, async (req, res, next) => {
 
 /* POST (create) booking. */
 router.route("/").post(verifyUser, async (req, res, next) => {
-  let newbooking = new bookingModel({...req.body});
+  let newBooking = new bookingModel({...req.body});
 
   try {
-    const response = await newbooking.save();
+    const product = await newBooking.idProduct;
+
+    if (!product || product.idSeller != req.user.id) {
+      return res.status(403).json({ msg: 'User id and product id are not the same' });
+    }
+
+    const response = await newBooking.save();
     res.status(200).json(response);
   } catch (err) {
     console.log(err);
