@@ -6,7 +6,7 @@ import "../../styles/Card.css";
 export default function CardCabeleireiro({sellers, ...rest}) {
     return(
         <article className="cards" {...rest}>
-            {/* <img src={props.sellers.images} alt="Foto Cabeleireiro" id={props.sellers.id}/> */}
+            <img src={sellers.images} alt="Foto Cabeleireiro" id={sellers.id}/>
 
             <div className="card-container">
                 <h6>{sellers.name}</h6>

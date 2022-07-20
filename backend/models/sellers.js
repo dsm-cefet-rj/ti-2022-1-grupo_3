@@ -18,7 +18,11 @@ const SellerSchema = new schema({
   password: {
     type: String,
     required: false
-  }
+  },
+  images: {
+    type: [String],
+    required: true,
+  },
 });
 
 SellerSchema.plugin(normalize);

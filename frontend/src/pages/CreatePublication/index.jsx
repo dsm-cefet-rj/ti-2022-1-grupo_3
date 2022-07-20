@@ -38,6 +38,7 @@ export default function CreatePublication() {
         
         if(actionType === 'formPublication/addProduct'){
             newProduct.idSeller = '62bca62f911d3857ecc5b1a9';
+            // newProduct.images = [defaultProfile];
             dispatch(addProductsServer(newProduct));
             alert("Produto Cadastrado com sucesso!");
         } 
